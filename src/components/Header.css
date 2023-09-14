@@ -1,0 +1,21 @@
+header{
+    height: 10vh;
+    background-color: #214d31;
+    border-radius: 70px 70px 0 0;
+}
+.logo-container{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+.headerIcon{
+    margin: auto 1%;
+    width: 7%;
+    height: auto;
+}
+.headerText{
+    margin: auto 1%;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+}

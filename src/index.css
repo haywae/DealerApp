@@ -1,0 +1,143 @@
+body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button{
+    font-size: small;
+    display: block;
+}
+input{
+    font-size: small;
+}
+#content {
+    margin: 2%;
+    min-height: 70vh;
+    /*border-right: 3px solid grey;
+    border-left: 3px solid grey;*/
+}
+.add-remove-container{
+    margin-left: auto;
+    width: 5%;
+}
+.add-remove{
+    border: none;
+    color: grey;
+    cursor: pointer;
+}
+.add-remove:hover {
+    color: black;
+}
+.remove-button{
+    background-color: white;
+    width: 5%;
+    color: grey;
+}
+.remove-button:hover{
+    color: black;
+    background-color: rgb(240, 240, 240);
+}
+.error-message{
+    z-index: 1;
+    display: none;
+    text-align: center;
+    font-size: small;
+    font-weight: normal;
+    color: rgb(141, 40, 40);
+    border-radius: 2px;
+    padding: 0 1%;
+}
+.reset-button{
+    background-color: white;
+    border: none;
+    color: grey;
+    cursor: pointer;
+    width: 5%;
+}
+.reset-button:hover{
+    color: black;
+    background-color: rgb(240, 240, 240);
+}
+.copy-button{
+    background-color: white;
+    border: none;
+    color: grey;
+    cursor: pointer;
+    width: 5%;
+}
+.copy-button:hover{
+    color: black;
+    background-color: rgb(240, 240, 240);
+}
+
+input:focus{
+    border: 1px solid grey;
+}
+.fi {
+    margin-right: 5%;
+    box-shadow: 0px 1px 4px 0px var(--midColor);
+    background-size: cover !important;
+}
+.description-text{
+    text-align: left;
+    color: black;
+    font-style: italic;
+    font-size: x-small;
+    font-weight: bold;
+    background-color: #addac1;
+    border-radius: 0 0 5px 5px;
+    padding: 1%;
+}
+
+/* Tooltips */
+.ttText{
+    position: absolute;
+    z-index: 2;
+    background-color: black;
+    color:  white;
+    border-radius: 5px;
+    visibility: hidden;
+    top: 100%;
+    width:max-content;
+    opacity: 0;
+    transition: opacity 1s;
+    font-weight: normal;
+    padding: 3px 5px;
+    line-height: 15px;
+}
+.ttButton{
+    position: relative;
+}
+.ttButton:hover .ttText{
+    visibility: visible;
+    opacity: 1;
+}
+.right-tt{
+    right: 0%;
+}
+.left-tt{
+    left: 0%;
+}
+/* Tooltips */
+@media only screen and (min-width: 768px){
+    #content{
+        margin: 2% 15%;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    #content{
+        margin: 2% 25%;
+    }
+}
+
+@media only screen and (min-width: 1440px){
+    #content{
+        margin: 2% 35%;
+    }
+}
+
+@media only screen and (min-width: 2560px){
+    #content{
+        margin: 2% 40%;
+    }
+}

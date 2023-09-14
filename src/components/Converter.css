@@ -1,0 +1,167 @@
+.cards{
+    --lightColor: #addac1;
+    --midColor: #7c9c8b;
+    --darkColor: #45574d;
+    margin: 5% auto;
+    box-shadow: 0px 2px 8px 0px var(--midColor);
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+}
+.cards-nav-list{
+    display: flex;
+    list-style: none;
+    background-color: var(--lightColor);
+    line-height: 2rem;
+    border-radius: 5px 5px 0 0;
+}
+.cards-nav-list  li {
+    padding: 0% 5%;
+    border-radius: 5px 5px 0 0 ;
+    cursor: pointer;
+} 
+.nav-active{
+    background-color: white;
+}
+.nav-inActive {
+    background-color: #addac1;
+}
+.converter-row1{
+    display: flex;
+    justify-content: right;
+    margin: 1% 0;
+    font-size: small;
+    height: 1.5em;
+}
+.convt-headings{
+    display: flex;
+    justify-content: space-between;
+    font-size: small;
+    margin: 1%;
+}
+.convt-headings h3 {
+    width: 46%;
+}
+.copy-reset-container2, .copy-reset-container1{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+
+.copy-reset-container2 > .convt-copy1{
+    margin-right: 48%;
+}
+.copy-reset-container2 > .convt-copy2{
+    margin-right: 43%;
+}
+.convt-add{
+    background-color: var(--lightColor);
+    width: 100%;
+}
+.convt-add:hover{
+    background-color: var(--midColor);
+}
+.card-main{
+    margin: 0 1%;
+    padding: 1% 0;
+    border-top: 2px solid var(--lightColor);
+    position: relative;
+}
+.converter-remove{
+    height: 1.5em;
+}
+.converter-row2{
+    display: flex;
+    justify-content: space-between;
+}
+.inactive{
+    display: none;
+}
+.currency-button-container{
+    width: 20%;
+}
+.currencyButton{
+    cursor: pointer;
+    border: 1px solid var(--lightColor);
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px 0px var(--midColor);
+    height: 30px;
+    width: 100%;
+}
+.currencyButton:hover {
+    background-color: rgb(240, 240 ,);
+}
+.currencyButtonContent{
+    position: absolute;
+    list-style: none;
+    top: 90%;
+    font-size: small;
+    font-weight: normal;
+    width: 20%;
+    z-index: 1;
+    overflow: auto;
+    cursor: pointer;
+    border-bottom: solid 2px var(--midColor);
+    max-height: 120px;
+    box-shadow: 0px 1px 2px 0px var(--midColor);
+    background-color: white;
+}
+.currencyList{
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: small;
+    color: var(--darkColor);
+}
+.currencyList:hover{
+    background-color: var(--lightColor);
+}
+.converterInput{
+    height: 90%;
+    width:  93%;
+    border: 1px solid var(--lightColor);
+    border-radius: 5px;
+    text-align: right;
+    padding-right: 5%;
+}
+.converterInput::placeholder{
+    text-align: center;
+    text-indent: 2%;
+    font-style: italic;
+    font-size: x-small;
+}
+.switch-button{
+    background-color: white;
+    border: none;
+    width: 5%;
+    border-radius: 5px;
+    color: gray;
+    padding: 0;
+}
+.switch-button:hover {
+    color: black;
+}
+.inputContainer, .outputContainer{
+    width: 25%;
+}
+.outputContainer{
+    display: flex;
+    justify-content: right;
+    border-top: 2px solid var(--lightColor);
+    border-bottom: 2px solid var(--lightColor);
+}
+.outputContainer > .ttText {
+    font-size: small;
+}
+.outputText{
+    margin: auto 0 auto 5%;
+    color:#45574d;
+    overflow:auto;
+    padding-right: 2%;
+}
+.converter-error-container{
+    font-size: small;
+    color: rgb(141, 40, 40);
+    text-align: center;
+    height: 15px;
+}
