@@ -296,7 +296,7 @@ function Output (props) {
     return (
         <div className="outputContainer ttButton">
             <p className="outputText"> {changeToCurrency(Number(output).toFixed(2))} </p>
-            <span className="ttText left-tt">{output}</span>
+            <span className="ttText right-tt">{output}</span>
         </div>
     )
 }
