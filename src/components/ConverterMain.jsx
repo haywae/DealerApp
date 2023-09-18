@@ -161,7 +161,7 @@ export default function ConverterMain (props) {
                     />
                 }
 
-                {view === "convert"? <Input  input={convt[view][name]['input']} name={name} setConvt={setConvt} view={view} calcConvert={calcConvert}
+                {view === "convert"? <Input input={convt[view][name]['input']} name={name} setConvt={setConvt} view={view} calcConvert={calcConvert}
                     calcFindOut={calcFindOut}
                 /> : 
                     <Output changeToCurrency={changeToCurrency} output={convt[view][name]['output']}
@@ -250,6 +250,17 @@ function Input (props) {
             }
         });
     }
+    function removeWrongCharacters() {
+        /*const regExp= /()/g
+        let result = input.replace(regExp, "")
+        setConvt(prev=>{
+            return{...prev, 
+                [view]: {...prev[view], 
+                    [name]: {...prev[view][name], input: result}
+                }
+            }
+        });*/
+    }
     return (  
         <div className="inputContainer "> 
             <input onFocus={
@@ -265,7 +276,7 @@ function Input (props) {
                     }
                 } 
                 type="number" placeholder="Enter amount..." className="converterInput" 
-                value={input} onChange={handleChange} onBlur={()=>{view==='convert'? calcConvert(name): calcFindOut(name)}}
+                value={input} onChange={handleChange} onBlur={()=>{view==='convert'? calcConvert(name): calcFindOut(name); removeWrongCharacters()}}
             /> 
         </div>
     )

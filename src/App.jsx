@@ -9,7 +9,9 @@ function App() {
     <div >
       <Header/>
       <main id='content'>
+        <h2 className='converter-heading'>Converter</h2>
         <ConverterApp/>
+        <h2 className='converter-heading'>Commission Calculator</h2>
         <ComCalculator/>
       </main>
     </div>

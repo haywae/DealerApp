@@ -2,11 +2,19 @@
     --lightColor: #addac1;
     --midColor: #7c9c8b;
     --darkColor: #45574d;
-    margin: 5% auto;
-    box-shadow: 0px 2px 8px 0px var(--midColor);
+    margin: 5px auto 15px auto;
+    box-shadow: 0px 2px 4px 0px var(--midColor);
     border-radius: 5px;
     font-size: medium;
     font-weight: bold;
+}
+.converter-heading{
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: bold;
+}
+.converter-card{
+    border-radius: 0 5px;
 }
 .cards-nav-list{
     display: flex;
@@ -17,14 +25,15 @@
 }
 .cards-nav-list  li {
     padding: 0% 5%;
-    border-radius: 5px 5px 0 0 ;
     cursor: pointer;
 } 
 .nav-active{
     background-color: white;
+    border-radius: 5px 5px 0 0 ;
+    box-shadow: 0px 0px 2px 0px var(--lightColor)
 }
 .nav-inActive {
-    background-color: #addac1;
+    
 }
 .converter-row1{
     margin: 1% 0;

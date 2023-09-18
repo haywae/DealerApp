@@ -55,7 +55,7 @@ export default function Converter(props){
         e.target.innerText === "Convert" ? setView("convert") : setView("findOut")
     }
     return(
-        <div className="cards converterCard" ref={convtRef}>
+        <div className="converter-card" ref={convtRef}>
             <nav className="cards-nav converter-nav">
                 <ul className="cards-nav-list convt-nav-list">
                     <li className={`nav-item1 ${view === "convert" ? "nav-active" : "nav-inActive"}`} onClick={toggleView}>{tab1Caption}</li>

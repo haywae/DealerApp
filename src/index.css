@@ -19,11 +19,13 @@ input{
 .add-remove-container{
     margin-left: auto;
     width: 5%;
+    
 }
 .add-remove{
     border: none;
     color: grey;
     cursor: pointer;
+    border-radius:  0 5px 0 0;
 }
 .add-remove:hover {
     color: black;

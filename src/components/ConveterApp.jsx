@@ -82,7 +82,7 @@ export default function ConverterApp() {
 
 
     return (
-        <div>
+        <div className='cards'>
             <Rates 
                 currency={currency} setCurrency={setCurrency} flag={flag} rows={rows} setRows={setRows} 
                 convt={convt} setConvt={setConvt} location={location} setLocation={setLocation} 
