@@ -1,5 +1,5 @@
 import React from "react";
-import './ComCalculator.css';
+import '../css/ComCalculator.css';
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { commissionDetails, commissionTooltips } from "./text";
@@ -92,14 +92,18 @@ export default function ComCalculator () {
 function CommissionMain (props) {
     const {commissionTab, name, setCommissionTab, view} = props;
     const {ttCloseButton, ttCopyResult, ttReset} = commissionTooltips;
-    
+
     function calcAdd() {
         const {amount, rate} = commissionTab.add[name]
+        const formatedAmount = Number( amount.replace(/,/g, '') )
+
         if (amount !== "" && rate !== "") {
             let calcRate = 1-(rate/100);
-            if (amount !== 0 && calcRate !==0) {
-                let result = amount / calcRate;
-                let commission = result - amount;
+
+            if (formatedAmount !== 0 && calcRate !==0) {
+                let result = formatedAmount / calcRate;
+                let commission = result - formatedAmount;
+
                 setCommissionTab(prev => ({
                     ...prev,
                     add : {...prev.add, 
@@ -112,11 +116,15 @@ function CommissionMain (props) {
 
     function calcRemove() {
         const {amount, rate} = commissionTab.remove[name]
+        const formatedAmount = Number( amount.replace(/,/g, '') )
+
         if (amount !== "" && rate !== "") {
             let calcRate = 1-(rate/100)
-            if (amount !== 0 && calcRate !== 0) {
-                let result = amount * calcRate;
-                let commission = amount - result;
+
+            if (formatedAmount !== 0 && calcRate !== 0) {
+                let result = formatedAmount * calcRate;
+                let commission = formatedAmount - result;
+    
                 setCommissionTab(prev => ({
                     ...prev,
                     remove : {...prev.remove, 
@@ -125,16 +133,6 @@ function CommissionMain (props) {
                 }))
             }
         }
-    }
-
-    function handleChange(e) {
-        const {value} = e.target;
-        setCommissionTab(prev => ({
-            ...prev,
-            [view]: {...prev[view], 
-                [name] : {...prev[view][name], amount: value}
-            }
-        }))
     }
 
     function handleRateChange(e) {
@@ -184,6 +182,7 @@ function CommissionMain (props) {
             }
         }))
     }
+
     return (
         <main className="card-main comm-main" >
             <div className={`${view === "remove" ? "comm-row1" : "comm-row1-2"}`}>
@@ -202,7 +201,8 @@ function CommissionMain (props) {
             </div>
             <div className="comm-row2">
                 {view === 'remove'? <Amount 
-                    value={commissionTab[view][name].amount} view={view} calcAdd={calcAdd} calcRemove={calcRemove} handleChange={handleChange} defaultOnFocus={defaultOnFocus}
+                    view={view} calcAdd={calcAdd} calcRemove={calcRemove} setCommissionTab={setCommissionTab} defaultOnFocus={defaultOnFocus}
+                    name={name} amount={commissionTab[view][name].amount}
                 /> : <Output output={commissionTab[view][name].output} changeToCurrency={changeToCurrency}/>} 
                 <div className="comm-col2 row2-items">
                     <input type="number" placeholder="Rate..." className="rate" value={commissionTab[view][name].rate} 
@@ -215,18 +215,50 @@ function CommissionMain (props) {
                     <span className="ttText right-tt">{commissionTab[view][name].commission}</span>
                 </div>
                 {view === 'remove' ? <Output output={commissionTab[view][name].output} changeToCurrency={changeToCurrency} 
-                /> : <Amount value={commissionTab[view][name].amount} view={view} calcAdd={calcAdd} calcRemove={calcRemove} defaultOnFocus={defaultOnFocus} handleChange={handleChange}/> } 
+                /> : <Amount 
+                    view={view} calcAdd={calcAdd} calcRemove={calcRemove} setCommissionTab={setCommissionTab}  defaultOnFocus={defaultOnFocus} 
+                    name={name} amount={commissionTab[view][name].amount}
+                /> } 
             </div>
         </main>
     )
 }
 
 function Amount(props){
-    const {calcAdd, calcRemove, defaultOnFocus, handleChange, view, value} = props;
+    const {amount, calcAdd, calcRemove, defaultOnFocus, setCommissionTab, name, view} = props;
+
+    const regex1 = /[^0-9.]/g //characters other than period and digits
+    const regex2 = /^(0(?=\d+))/g //input that begins with 0
+    const regex3 = /(?<=\.+)\./g //it will look behind the period character if it has another period character
+    const regex4 = /(?<=(\.+)(\d+))\./g // it will check to see if a period is not the first period in the input
+    
+    function handleChange(e) {
+        const {value} = e.target;
+        setCommissionTab(prev => ({
+            ...prev,
+            [view]: {...prev[view], 
+                [name] : {...prev[view][name], amount: 
+                    value.replace(regex1, '').replace(regex2, '').replace(regex3, '').replace(regex4, '')
+                }
+            }
+        }))
+    }
+
+    function formatValues () {
+        setCommissionTab(prev => ({
+            ...prev,
+            [view]: {...prev[view], 
+                [name] : {...prev[view][name], amount: 
+                    Number(prev[view][name].amount).toLocaleString('en-US')
+                }
+            }
+        }))
+    }
+    
     return (
     <div className="comm-col1 row2-items">
-        <input type="number" placeholder="Enter Amount..." className="amount" value={value}  
-            onBlur={view === 'remove'? calcRemove : calcAdd} onChange={handleChange} onClick={e => e.target.select()}
+        <input type="text" placeholder="Enter Amount..." className="amount" value={amount}  
+            onBlur={()=>{formatValues(); view === 'remove'? calcRemove() : calcAdd()}} onChange={handleChange} onClick={e => e.target.select()}
             onFocus={defaultOnFocus}
         />
     </div>

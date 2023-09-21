@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useState } from "react";
-import './Converter.css';
+import '../css/Converter.css';
 import ConverterMain from "./ConverterMain";
 import { converterDetails } from "./text";
 import { converterTooltips } from "./text";

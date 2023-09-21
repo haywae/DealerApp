@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import './Converter.css';
+import '../css/Converter.css';
 import { converterDetails } from "./text";
 import { converterTooltips } from "./text";
 
@@ -13,7 +13,7 @@ export default function ConverterMain (props) {
     const {ttCloseButton, ttCopyResult, ttReset, ttSwitchValues} = converterTooltips;
 
     const[isOpen,setIsOpen] = React.useState({selectInput: false, selectOutput:false});
-    const [inputText, setInputText] = useState({leftInput: '', rightInput: ''});
+    const [inputText, setInputText] = useState({leftInput: '', rightInput: ''}); // the value of the  input on the currency select dropdrown
     
     const preValue = useRef([]);
     const main = useRef(); //grabs the main element
@@ -21,14 +21,13 @@ export default function ConverterMain (props) {
     const curRef = useRef(Object.keys(currency))
     let id = 1;
 
-
     const convtDropdown1 = curRef.current.map(e=>{
         return currency[e].name.search(inputText['leftInput'].toUpperCase()) > -1 && <Dropdown key={id++} type="selectInput" convt={convt} setConvt={setConvt} errorDisplay={errorDisplay}
         text={e} currency={currency} checkSelectValue={checkSelectValue} setIsOpen={setIsOpen} view={view} 
         checkSameValue={checkSameValue} name={name} flag={flag} calcConvert={calcConvert} calcFindOut={calcFindOut}/>
     })
     const convtDropdown2 = curRef.current.map(e=>{
-        return currency[e].name.search(inputText['rightInput'].toUpperCase()) > -1 && <Dropdown  key={id++} type="selectOutput" convt={convt} setConvt={setConvt} errorDisplay={errorDisplay}
+        return currency[e].name.search(inputText['rightInput'].toUpperCase()) > -1 && <Dropdown key={id++} type="selectOutput" convt={convt} setConvt={setConvt} errorDisplay={errorDisplay}
         text={e} currency={currency} checkSelectValue={checkSelectValue} setIsOpen={setIsOpen} view={view}
         checkSameValue={checkSameValue} name={name} flag={flag} calcConvert={calcConvert} calcFindOut={calcFindOut}/>
     })
@@ -46,8 +45,6 @@ export default function ConverterMain (props) {
         document.addEventListener("mouseup", checkOutside)
         return () => {document.removeEventListener("mouseup", checkOutside)}
     },[isOpen])
-
-    
 
     function checkSameValue(value, type) { 
         if (type === "selectInput" && value === convt[view][name].selectOutput) { 
@@ -161,8 +158,8 @@ export default function ConverterMain (props) {
                     />
                 }
 
-                {view === "convert"? <Input input={convt[view][name]['input']} name={name} setConvt={setConvt} view={view} calcConvert={calcConvert}
-                    calcFindOut={calcFindOut}
+                {view === "convert"? <Input name={name} setConvt={setConvt} view={view} calcConvert={calcConvert}
+                    calcFindOut={calcFindOut} input={convt[view][name]['input']}
                 /> : 
                     <Output changeToCurrency={changeToCurrency} output={convt[view][name]['output']}
                 />}
@@ -181,7 +178,7 @@ export default function ConverterMain (props) {
                 }
 
                 {view === "convert"? <Output changeToCurrency={changeToCurrency} output={convt[view][name]['output']}/> : 
-                    <Input input={convt[view][name]['input']} name={name} setConvt={setConvt} view={view} calcConvert={calcConvert} calcFindOut={calcFindOut}
+                    <Input name={name} setConvt={setConvt} view={view} calcConvert={calcConvert} calcFindOut={calcFindOut} input={convt[view][name]['input']}
                 />}
             </div>
         </main>
@@ -240,27 +237,35 @@ const SelectInput = forwardRef(function SelectInput(props, ref){
 
 function Input (props) {
     const {calcConvert, calcFindOut, input, name, view, setConvt} = props;
+
+    const regex1 = /[^0-9.]/g //characters other than period and digits
+    const regex2 = /^(0(?=\d+))/g //input that begins with 0
+    const regex3 = /(?<=\.+)\./g //it will look behind the period character if it has another period character
+    const regex4 = /(?<=(\.+)(\d+))\./g // it will check to see if a period is not the first period in the input
+
     function handleChange(event) { 
-        const { value} = event.target; // it sets the value of the converter input object to the value received from the event object
+        const { value} = event.target; // the function sets the value of the converter input property to the value received from the event object
+        // the replace methods will remove non digit characters and excess periods
         setConvt(prev=>{
             return{...prev, 
                 [view]: {...prev[view], 
-                    [name]: {...prev[view][name], input: value}
+                    [name]: {...prev[view][name], input: value.replace(regex1, '').replace(regex2, '').replace(regex3, '').replace(regex4, '')}
                 }
             }
         });
     }
-    function removeWrongCharacters() {
-        /*const regExp= /()/g
-        let result = input.replace(regExp, "")
+    function formatValues() {
+        // this will format the displayed value to the comman seperated digits
         setConvt(prev=>{
             return{...prev, 
                 [view]: {...prev[view], 
-                    [name]: {...prev[view][name], input: result}
+                    [name]: {...prev[view][name], input:  Number(prev[view][name]['input']).toLocaleString('en-US')}
                 }
             }
-        });*/
+        });
+       
     }
+
     return (  
         <div className="inputContainer "> 
             <input onFocus={
@@ -275,8 +280,8 @@ function Input (props) {
                         });
                     }
                 } 
-                type="number" placeholder="Enter amount..." className="converterInput" 
-                value={input} onChange={handleChange} onBlur={()=>{view==='convert'? calcConvert(name): calcFindOut(name); removeWrongCharacters()}}
+                type="text" placeholder="Enter amount..." className="converterInput" value={input} 
+                onChange={handleChange} onBlur={()=>{ formatValues(); view==='convert'? calcConvert(name): calcFindOut(name)}} onClick={(e)=>e.target.select()}
             /> 
         </div>
     )

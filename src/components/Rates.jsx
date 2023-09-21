@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import './Rates.css';
+import '../css/Rates.css';
 import TableBody from "./TableBody";
 import { useState } from "react";
 import { useRef } from "react";
