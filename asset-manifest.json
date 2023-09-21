@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DealerApp/static/css/main.35ca89d3.css",
-    "main.js": "/DealerApp/static/js/main.9ee2d37b.js",
+    "main.css": "/DealerApp/static/css/main.98a70fbd.css",
+    "main.js": "/DealerApp/static/js/main.929a3da7.js",
     "static/js/787.93ff5130.chunk.js": "/DealerApp/static/js/787.93ff5130.chunk.js",
     "static/media/rs.svg": "/DealerApp/static/media/rs.592a16061fdb260df109.svg",
     "static/media/bo.svg": "/DealerApp/static/media/bo.524f603b8c770d1ba57a.svg",
@@ -167,8 +167,8 @@
     "static/media/tl.svg": "/DealerApp/static/media/tl.d8e3bbb05aa228ef7591.svg",
     "static/media/dj.svg": "/DealerApp/static/media/dj.52e5fa9d44c086c8bca4.svg",
     "static/media/bv.svg": "/DealerApp/static/media/bv.3d8e6f49fad8459575e1.svg",
-    "static/media/cl.svg": "/DealerApp/static/media/cl.107ef3fb7d1ea271cc2e.svg",
     "index.html": "/DealerApp/index.html",
+    "static/media/cl.svg": "/DealerApp/static/media/cl.107ef3fb7d1ea271cc2e.svg",
     "static/media/bs.svg": "/DealerApp/static/media/bs.527eff5cdc00fa23f06f.svg",
     "static/media/tr.svg": "/DealerApp/static/media/tr.a1a28a5eb8eceaad90b3.svg",
     "static/media/fo.svg": "/DealerApp/static/media/fo.a004f63d8cf851543b79.svg",
@@ -272,12 +272,12 @@
     "static/media/de.svg": "/DealerApp/static/media/de.6435bf24d148ca7248e7.svg",
     "static/media/bd.svg": "/DealerApp/static/media/bd.0ad8c443ef4d47ea0497.svg",
     "static/media/id.svg": "/DealerApp/static/media/id.f624e2c8444a7794b357.svg",
-    "main.35ca89d3.css.map": "/DealerApp/static/css/main.35ca89d3.css.map",
-    "main.9ee2d37b.js.map": "/DealerApp/static/js/main.9ee2d37b.js.map",
+    "main.98a70fbd.css.map": "/DealerApp/static/css/main.98a70fbd.css.map",
+    "main.929a3da7.js.map": "/DealerApp/static/js/main.929a3da7.js.map",
     "787.93ff5130.chunk.js.map": "/DealerApp/static/js/787.93ff5130.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.35ca89d3.css",
-    "static/js/main.9ee2d37b.js"
+    "static/css/main.98a70fbd.css",
+    "static/js/main.929a3da7.js"
   ]
 }
