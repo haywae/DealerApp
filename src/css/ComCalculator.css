@@ -13,6 +13,7 @@
 }
 .comm-headings{
     text-align: center;
+    font-weight: normal;
 }
 .comm-row1{
     display: flex;
