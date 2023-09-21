@@ -4,7 +4,6 @@
     --darkColor: #45574d;
     position: relative;
     padding-bottom: 10px;
-    border: 5px 5px 0 0;
 }
 .local-currency{
     position: absolute;
@@ -14,7 +13,8 @@
 }
 .local-currency-heading{
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
+    font-size: 0.9rem;
 }
 .local-currency-dropdown{
     width: 75% !important;
@@ -52,6 +52,7 @@
     display: flex;
     line-height: 1.5em;
     padding: 1%;
+
 }
 .rates-data{
     display: flex;
@@ -88,7 +89,6 @@ tbody{
     border-radius: 5px 5px 0 0;
 }
 .rates-table th{
-    font-weight: bold;
     font-size: 0.8rem;
     letter-spacing: 0.1rem;
     border-bottom:solid 1px #7c9c8b;
