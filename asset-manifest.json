@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/DealerApp/static/css/main.b5defe5d.css",
+    "main.css": "/DealerApp/static/css/main.4ca403d7.css",
     "main.js": "/DealerApp/static/js/main.09668f97.js",
     "static/js/787.93ff5130.chunk.js": "/DealerApp/static/js/787.93ff5130.chunk.js",
     "static/media/rs.svg": "/DealerApp/static/media/rs.592a16061fdb260df109.svg",
@@ -272,12 +272,12 @@
     "static/media/de.svg": "/DealerApp/static/media/de.6435bf24d148ca7248e7.svg",
     "static/media/bd.svg": "/DealerApp/static/media/bd.0ad8c443ef4d47ea0497.svg",
     "static/media/id.svg": "/DealerApp/static/media/id.f624e2c8444a7794b357.svg",
-    "main.b5defe5d.css.map": "/DealerApp/static/css/main.b5defe5d.css.map",
+    "main.4ca403d7.css.map": "/DealerApp/static/css/main.4ca403d7.css.map",
     "main.09668f97.js.map": "/DealerApp/static/js/main.09668f97.js.map",
     "787.93ff5130.chunk.js.map": "/DealerApp/static/js/787.93ff5130.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5defe5d.css",
+    "static/css/main.4ca403d7.css",
     "static/js/main.09668f97.js"
   ]
 }
