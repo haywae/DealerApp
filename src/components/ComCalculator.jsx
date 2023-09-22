@@ -186,7 +186,7 @@ function CommissionMain (props) {
     return (
         <main className="card-main comm-main" >
             <div className={`${view === "remove" ? "comm-row1" : "comm-row1-2"}`}>
-                <button type="button" className={`${commissionTab[view][name].id > 1 ? 'comm-copy1' : 'comm-copy2'} copy-button  left-tt`}>
+                <button type="button" className={`${commissionTab[view][name].id > 1 ? 'comm-copy1' : 'comm-copy2'} copy-button  ttButton`}>
                     <FontAwesomeIcon icon={faCopy} onClick={()=>{navigator.clipboard.writeText(commissionTab[view][name].output)}}/>
                     <span className="ttText right-tt">{ttCopyResult}</span>
                 </button>
