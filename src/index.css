@@ -3,6 +3,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: black
 }
+.section-headings{
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: bold;
+}
 button{
     font-size: small;
     display: block;
