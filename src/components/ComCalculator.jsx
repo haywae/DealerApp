@@ -230,7 +230,7 @@ function Amount(props){
     const regex1 = /[^0-9.]/g //characters other than period and digits
     const regex2 = /^(0(?=\d+))/g //input that begins with 0
     const regex3 = /(?<=\.+)\./g //it will look behind the period character if it has another period character
-    const regex4 = /(?<=(\.+)(\d+))\./g // it will check to see if a period is not the first period in the input
+    const regex4 = /(?<=\.+\d+)\./g // it will check to see if a period is not the first period in the input
     
     function handleChange(e) {
         const {value} = e.target;
