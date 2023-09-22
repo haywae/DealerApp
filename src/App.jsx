@@ -2,20 +2,20 @@ import Header from './components/Header'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import ComCalculator from './components/ComCalculator';
 import ConverterApp from './components/ConveterApp';
+import './index.css'
 
-function App() {
+export default function App() {
 
-  return (
+  return ( 
     <div >
       <Header/>
       <main id='content'>
-        <h2 className='converter-heading'>Converter</h2>
+        <h2 className='section-headings'>Converter</h2>
         <ConverterApp/>
-        <h2 className='converter-heading'>Commission Calculator</h2>
+        <h2 className='section-headings'>Commission Calculator</h2>
         <ComCalculator/>
       </main>
     </div>
   )
 }
 
-export default App;
