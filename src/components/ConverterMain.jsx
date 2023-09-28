@@ -237,12 +237,12 @@ const SelectInput = forwardRef(function SelectInput(props, ref){
 
 function Input (props) {
     const {calcConvert, calcFindOut, input, name, view, setConvt} = props;
-
+    //Regular Expressions is used in this component
 
     function handleChange(event) { 
         const regex1 =  /[^0-9.]/g //characters other than period and digits
         const regex2 =  /^(0(?=\d+))/g //input that begins with 0
-        const regex3 = /\.\./g //it will look behind the period character if it has another period character
+        const regex3 = /(\.)(\.)/g //it will look behind the period character if it has another period character
         const regex4 = /(\.)(\d+)(\.)/g // it will check to see if a period is not the first period in the input
         
         const { value} = event.target; // the function sets the value of the converter input property to the value received from the event object
@@ -251,7 +251,7 @@ function Input (props) {
             return{...prev, 
                 [view]: {...prev[view], 
                     [name]: {...prev[view][name], input: 
-                        value.replace(regex1, '').replace(regex2, '').replace(regex3, '.').replace(regex4, '$1$2')
+                        value.replace(regex1, '').replace(regex2, '').replace(regex3, '$1').replace(regex4, '$1$2')
                     }
                 }
             }
@@ -262,9 +262,12 @@ function Input (props) {
         setConvt(prev=>{
             return{...prev, 
                 [view]: {...prev[view], 
-                    [name]: {...prev[view][name], input:  Number(prev[view][name]['input']).toLocaleString('en-US')}
+                    [name]: {...prev[view][name], input: prev[view][name]['input'].match( RegExp(/\d+/, 'g') ) ?
+                        Number(prev[view][name]['input']).toLocaleString('en-US') : ''
+                    }
                 }
             }
+          
         });
        
     }
