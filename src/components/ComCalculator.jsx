@@ -229,7 +229,7 @@ function Amount(props){
 
     const regex1 = /[^0-9.]/g //characters other than period and digits
     const regex2 = /^(0(?=\d+))/g //input that begins with 0
-    const regex3 = /\.\./g //it will look behind the period character if it has another period character
+    const regex3 = /(\.)(\.)/g //it will look behind the period character if it has another period character
     const regex4 = /(\.)(\d+)(\.)/g // it will check to see if a period is not the first period in the input
     
     function handleChange(e) {
@@ -238,7 +238,7 @@ function Amount(props){
             ...prev,
             [view]: {...prev[view], 
                 [name] : {...prev[view][name], amount: 
-                    value.replace(regex1, '').replace(regex2, '').replace(regex3, '').replace(regex4, '$1$2')
+                    value.replace(regex1, '').replace(regex2, '').replace(regex3, '$1').replace(regex4, '$1$2')
                 }
             }
         }))
@@ -248,8 +248,8 @@ function Amount(props){
         setCommissionTab(prev => ({
             ...prev,
             [view]: {...prev[view], 
-                [name] : {...prev[view][name], amount: 
-                    Number(prev[view][name].amount).toLocaleString('en-US')
+                [name] : {...prev[view][name], amount: prev[view][name]['amount'].match( RegExp(/\d+/, 'g') ) ?
+                    Number(prev[view][name].amount).toLocaleString('en-US') : ''
                 }
             }
         }))
