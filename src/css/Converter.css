@@ -1,7 +1,4 @@
 .cards{
-    --lightColor: #addac1;
-    --midColor: #7c9c8b;
-    --darkColor: #45574d;
     margin: 5px auto 15px auto;
     box-shadow: 0px 2px 4px 0px var(--midColor);
     border-radius: 5px;
