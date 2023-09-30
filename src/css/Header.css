@@ -1,6 +1,6 @@
 header{
-    height: 10vh;
-    background-color: #214d31;
+    height: 5rem;
+    background-color: var(--lightColor);
     border-radius: 70px 70px 0 0;
 }
 .logo-container{
@@ -17,5 +17,4 @@ header{
     margin: auto 1%;
     font-weight: bold;
     font-size: 1.5rem;
-    color: white;
 }
