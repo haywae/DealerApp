@@ -6,6 +6,12 @@ export default function Header() {
             <section className="logo-container">
                 <h2 className="headerText">Dealer</h2>
             </section>
+            <section className="nav-container">
+                <ul className="nav-items">
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/userGuide">User Guide</a></li>
+                </ul>
+            </section>
         </header>
     )
 }

@@ -2,11 +2,32 @@ header{
     height: 5rem;
     background-color: var(--lightColor);
     border-radius: 70px 70px 0 0;
+    display: flex;
+    justify-content: space-between;
 }
 .logo-container{
-    display: flex;
     height: 100%;
-    justify-content: center;
+    display: flex;
+    margin: auto 5%;
+}
+.nav-container{
+    margin: auto 5%;
+}
+.nav-items{
+    display: flex;
+}
+.nav-items li{
+    list-style: none;
+    margin: 0 2%;
+    text-align: center;
+    text-wrap:nowrap;
+}
+.nav-items li:hover{
+    background-color: var(--midColor);
+}
+.nav-items a{
+    text-decoration: none;
+    color: black;
 }
 .headerIcon{
     margin: auto 1%;

@@ -1,20 +1,19 @@
-import Header from './components/Header'
-import "/node_modules/flag-icons/css/flag-icons.min.css";
-import ComCalculator from './components/ComCalculator';
-import ConverterApp from './components/ConveterApp';
-import './index.css'
+import { BrowserRouter, Routes, Route} from "react-router-dom"
+import { Home } from "./pages/Home"
+import { NoPage } from "./pages/NoPage"
+import { UserGuide } from "./pages/UserGuide"
 
 export default function App() {
-
   return ( 
-    <div >
-      <Header/>
-      <main id='content'>
-        <h2 className='section-headings'>Converter</h2>
-        <ConverterApp/>
-        <h2 className='section-headings'>Commission Calculator</h2>
-        <ComCalculator/>
-      </main>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={ <Home /> } />
+          <Route path="/home" element={<Home />} />
+          <Route path="/userGuide" element={<UserGuide />} />
+          <Route path="*" element={<NoPage />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
