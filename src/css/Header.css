@@ -1,6 +1,6 @@
 header{
     height: 5rem;
-    background-color: var(--lightColor);
+    background-color: var(--midColor);
     border-radius: 70px 70px 0 0;
     display: flex;
     justify-content: space-between;
@@ -13,21 +13,29 @@ header{
 .nav-container{
     margin: auto 5%;
 }
+.nav-icon{
+    position: relative;
+    height: 1.5rem;
+}
 .nav-items{
-    display: flex;
+    position: absolute;
+    right: 5%;
+    background-color: var(--lightColor);
+    z-index: 2;
+    width: 10rem;
+    padding: 0 1%;
 }
 .nav-items li{
     list-style: none;
     margin: 0 2%;
     text-align: center;
-    text-wrap:nowrap;
-}
-.nav-items li:hover{
-    background-color: var(--midColor);
 }
 .nav-items a{
     text-decoration: none;
     color: black;
+}
+.nav-items a:hover{
+    background-color: var(--midColor);
 }
 .headerIcon{
     margin: auto 1%;

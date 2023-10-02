@@ -1,0 +1,20 @@
+.footer-container{
+    text-align: center;
+    background-color: var(--midColor);
+    font-size: small;
+    min-height: 10vh;
+    padding: 1%;
+}
+.footer-r1{
+    margin: 2% auto;
+}
+.footer-r2{
+    margin: 2% auto;
+}
+.footer-tags{
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    margin: 0 1%;
+   
+}

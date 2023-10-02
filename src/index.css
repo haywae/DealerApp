@@ -20,7 +20,7 @@ button{
 input{
     font-size: small;
 }
-#content {
+.content {
     margin: 2%;
     min-height: 70vh;
     /*border-right: 3px solid grey;
@@ -132,25 +132,25 @@ input:focus{
 }
 /* Tooltips */
 @media only screen and (min-width: 768px){
-    #content{
+    .content{
         margin: 2% 15%;
     }
 }
 
 @media only screen and (min-width: 1024px){
-    #content{
+    .content{
         margin: 2% 25%;
     }
 }
 
 @media only screen and (min-width: 1440px){
-    #content{
+    .content{
         margin: 2% 30%;
     }
 }
 
 @media only screen and (min-width: 2560px){
-    #content{
+    .content{
         margin: 2% 35%;
     }
 }
