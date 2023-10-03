@@ -1,15 +1,18 @@
 .footer-container{
     text-align: center;
-    background-color: var(--midColor);
+    background-color: var(--intermidColor);
+    height: 5rem;
+    padding:  1%;
     font-size: small;
-    min-height: 10vh;
-    padding: 1%;
+    margin-top: auto;
 }
 .footer-r1{
     margin: 1% auto;
+    height: 50%;
 }
 .footer-r2{
     margin: 1% auto;
+    height: 50%;
 }
 .footer-tags{
     text-decoration: none;
@@ -17,4 +20,10 @@
     display: inline-block;
     margin: 0 1%;
    
+}
+.footer-tags:hover{
+    color: var(--darkColor);
+}
+.footer-tag-sep{
+   border: 1px solid black;
 }

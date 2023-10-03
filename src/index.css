@@ -7,6 +7,11 @@ body {
     --midColor: #7c9c8b;
     --darkColor: #45574d;
 }
+#root{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 .section-headings{
     font-size: 1.3rem;
     text-align: center;
@@ -22,7 +27,6 @@ input{
 }
 .content {
     margin: 2%;
-    min-height: 70vh;
     /*border-right: 3px solid grey;
     border-left: 3px solid grey;*/
 }
@@ -130,6 +134,7 @@ input:focus{
 .left-tt{
     left: 0%;
 }
+
 /* Tooltips */
 @media only screen and (min-width: 768px){
     .content{
@@ -141,6 +146,7 @@ input:focus{
     .content{
         margin: 2% 25%;
     }
+    
 }
 
 @media only screen and (min-width: 1440px){

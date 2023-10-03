@@ -1,8 +1,52 @@
-
 .doc-main{
-    margin: 1%;
+    margin: 1% 2%;
 }
 
-.doc-head{
+.doc-head-2{
     font-weight: bold;
+    font-size: x-large;
+    margin: 2% 0;
+    line-height: 2rem;
 }
+.doc-head-3{
+    font-weight: bold;
+    margin: 2% 0;
+    line-height: 1.5rem;
+}
+.art-1, .art-2{
+    padding: 0 2%;
+    margin: 2% 0;
+    border-radius: 5px;
+}
+
+.doc-main p {
+    text-align: justify;
+    margin: 2% 0;
+    line-height: 1.5rem;
+    color: var(--darkColor);
+}
+.doc-main li{
+    margin: 2% 5%;
+}
+
+.underline{
+    border-bottom: 1px solid var(--darkColor);
+}
+
+.emphasis{
+    font-weight: bold;
+    font-style: italic;
+}
+
+@media only screen and (min-width: 1024px){
+    .doc-main{
+        margin: 1% 20%;
+    }
+}
+
+@media only screen and (min-width: 1440px){
+    .doc-main{
+        margin: 1% 30%;
+    }
+}
+

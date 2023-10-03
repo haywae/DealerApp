@@ -21,7 +21,7 @@ export default function Header() {
     return (
         <header>
             <section className="logo-container">
-                <h2 className="headerText">Dealer</h2>
+                <h2 className="headerText">WolexChange</h2>
             </section>
             <section className="nav-container">
                 <button className="nav-button" onClick={()=>{setNavIsOpen(prev=>(!prev))}} ref={buttonRef} >
@@ -30,6 +30,8 @@ export default function Header() {
                 {navIsOpen && <ul className="nav-items">
                     <li><NavLink to='/' className="links">Home</NavLink></li>
                     <li><NavLink to='/documentation' className="links">Documentation</NavLink></li>
+                    <li><NavLink to='/about' className='links'>About</NavLink></li>
+                    <li><NavLink to='/contact' className='links'>Contact</NavLink></li>
                 </ul>}
             </section>
         </header>

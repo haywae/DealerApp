@@ -1,11 +1,12 @@
 import { Helmet } from "react-helmet-async"
-export function About(){
-    return(
+
+export function Contact() {
+    return (
         <div className="doc-main">
             <Helmet>
-                <title>About - WolexChange</title>
+                <title>Contact - WolexChange</title>
             </Helmet>
-            <p>About Us</p>
+            <p>Contact Us</p>
         </div>
     )
 }

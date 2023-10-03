@@ -1,6 +1,6 @@
 header{
     height: 5rem;
-    background-color: var(--midColor);
+    background-color: var(--intermidColor);
     border-radius: 70px 70px 0 0;
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,10 @@ header{
     margin: auto 5%;
 }
 .nav-button{
-    background-color: var(--midColor);
+    background-color: var(--intermidColor);
+}
+.nav-button:hover{
+    cursor: pointer;
 }
 .nav-icon{
     position: relative;
@@ -41,6 +44,7 @@ header{
     text-decoration: none;
     width: 100%;
     color: black;
+    margin: 0 2%;
 }
 .headerIcon{
     margin: auto 1%;
@@ -51,4 +55,27 @@ header{
     margin: auto 1%;
     font-weight: bold;
     font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 768px){
+    .nav-items{
+        width: 15rem;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    .nav-items{
+        width: 20rem;
+        right: 10%;
+    }
+    .nav-icon{
+        height: 2rem;
+    }
+    .links{
+        margin: 0 5%;
+    }
+    .nav-container, .logo-container{
+        margin: auto 10%;
+        
+    }
 }
