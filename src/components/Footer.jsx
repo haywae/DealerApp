@@ -12,7 +12,7 @@ export function Footer() {
                 <span className='footer-tag-sep'>|</span>
                 <Link className='footer-tags'>Privacy Policy</Link>
     </div>*/}
-            <div className='footer-r'> &copy; 2023 Wolexchange Enterprise</div>
+            <div className='footer-r'> &copy; 2023 Wolex Enterprise</div>
         </div>
     )
 }
