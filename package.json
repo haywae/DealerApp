@@ -1,6 +1,6 @@
 {
-  "homepage": "https://haywae.github.io/DealerApp",
-  "name": "dealer",
+  "homepage": "https://haywae.github.io/WolexChange",
+  "name": "wolexchange",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
