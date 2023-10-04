@@ -12,7 +12,7 @@ export function NoPage() {
                 <h2 className="error-h2">404</h2>
                 <p className="error-p1">Page not Found</p>
                 <p className="error-p2">Sorry, the page you are looking for can't be found. <br /> Please check your address and try again</p>
-                <button className="back-home"><Link to="/" className="back-home-link"> back to Home </Link></button>
+                <button className="back-home"><Link to="WolexChange/" className="back-home-link"> back to Home </Link></button>
             </div>
             
         </div>
