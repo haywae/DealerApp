@@ -1,0 +1,36 @@
+
+/*Error for the error page*/
+.error-main{
+    margin: 10%;
+}
+.error-p1, .error-p2, .error-h2{
+    line-height:  2rem;
+    text-align: center;
+    display: block;
+    color: red;
+}
+.error-h2{
+    font-size: 5rem;
+    font-weight: bold;
+    margin: 5%;
+}
+.error-p1{
+    font-weight: bold;
+}
+.error-p2{
+    
+}
+.back-home{
+    margin: 5% auto;
+    background-color: grey;
+    height: 2rem;
+    padding: 1%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px 0px grey;
+}
+.back-home-link{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+/*Error for the error page*/

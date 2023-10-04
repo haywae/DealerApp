@@ -31,8 +31,14 @@ export default function Header() {
                     <li><NavLink to='/' className="links">Home</NavLink></li>
                     <li><NavLink to='/documentation' className="links">Documentation</NavLink></li>
                     <li><NavLink to='/about' className='links'>About</NavLink></li>
-                    <li><NavLink to='/contact' className='links'>Contact</NavLink></li>
                 </ul>}
+            </section>
+            <section className="bg-nav-container">
+                <ul className="bg-nav-items">
+                    <li className="bg-nav-li"> <NavLink to='/' className="bg-links nv-home">Home</NavLink> </li>
+                    <li className="bg-nav-li"> <NavLink to='/documentation' className="bg-links nv-docs">Documentation</NavLink> </li>
+                    <li className="bg-nav-li"> <NavLink to='/about' className='bg-links nv-bout'>About</NavLink> </li>
+                </ul>
             </section>
         </header>
     )

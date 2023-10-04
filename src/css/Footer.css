@@ -1,18 +1,13 @@
 .footer-container{
     text-align: center;
     background-color: var(--intermidColor);
-    height: 5rem;
     padding:  1%;
     font-size: small;
     margin-top: auto;
 }
-.footer-r1{
-    margin: 1% auto;
-    height: 50%;
-}
-.footer-r2{
-    margin: 1% auto;
-    height: 50%;
+.footer-r{
+    margin: auto;
+    line-height: 1.5rem;
 }
 .footer-tags{
     text-decoration: none;
@@ -22,8 +17,8 @@
    
 }
 .footer-tags:hover{
-    color: var(--darkColor);
+    text-decoration: underline;
 }
 .footer-tag-sep{
-   border: 1px solid black;
+   font-size: large;
 }
