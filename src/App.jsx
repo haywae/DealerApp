@@ -15,8 +15,8 @@ export default function App() {
         <Routes>
           <Route path="/WolexChange" element={ <SharedLayout/> }>
             <Route index element={ <Home /> } />
-            <Route path="WolexChange/documentation" element={<Documentation />} />
-            <Route path="WolexChange/about" element={<About/>} />
+            <Route path="/documentation" element={<Documentation />} />
+            <Route path="/about" element={<About/>} />
             <Route path="*" element={<NoPage />}/>
           </Route>
         </Routes>
