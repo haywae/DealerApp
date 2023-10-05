@@ -28,14 +28,14 @@ export default function Header() {
                     <FontAwesomeIcon icon={faNavicon} className="nav-icon" />
                 </button>
                 {navIsOpen && <ul className="nav-items">
-                    <li><NavLink to='/WolexChange/Home' className="links">Home</NavLink></li>
-                    <li><NavLink to='WolexChange/documentation' className="links">Documentation</NavLink></li>
-                    <li><NavLink to='WolexChange/about' className='links'>About</NavLink></li>
+                    <li><NavLink to='/WolexChange/' className="links">Home</NavLink></li>
+                    <li><NavLink to='/WolexChange/documentation' className="links">Documentation</NavLink></li>
+                    <li><NavLink to='/WolexChange/about' className='links'>About</NavLink></li>
                 </ul>}
             </section>
             <section className="bg-nav-container">
                 <ul className="bg-nav-items">
-                    <li className="bg-nav-li"> <NavLink to='/WolexChange/Home' className="bg-links nv-home">Home</NavLink> </li>
+                    <li className="bg-nav-li"> <NavLink to='/WolexChange/' className="bg-links nv-home">Home</NavLink> </li>
                     <li className="bg-nav-li"> <NavLink to='/WolexChange/documentation' className="bg-links nv-docs">Documentation</NavLink> </li>
                     <li className="bg-nav-li"> <NavLink to='/WolexChange/about' className='bg-links nv-bout'>About</NavLink> </li>
                 </ul>
