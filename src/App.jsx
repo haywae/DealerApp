@@ -13,7 +13,7 @@ export default function App() {
       <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="./" element={ <SharedLayout/> }>
+          <Route path="/" element={ <SharedLayout/> }>
             <Route index element={ <Home /> } />
             <Route path="documentation" element={<Documentation />} />
             <Route path="about" element={<About/>} />
