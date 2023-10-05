@@ -13,10 +13,10 @@ export default function App() {
       <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/WolexChange" element={ <SharedLayout/> }>
+          <Route path="WoleExchange" element={ <SharedLayout/> }>
             <Route index element={ <Home /> } />
-            <Route path="/documentation" element={<Documentation />} />
-            <Route path="/about" element={<About/>} />
+            <Route path="documentation" element={<Documentation />} />
+            <Route path="about" element={<About/>} />
             <Route path="*" element={<NoPage />}/>
           </Route>
         </Routes>
