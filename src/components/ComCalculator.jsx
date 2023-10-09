@@ -248,7 +248,7 @@ function Amount(props){
         setCommissionTab(prev => ({
             ...prev,
             [view]: {...prev[view], 
-                [name] : {...prev[view][name], amount: prev[view][name]['amount'].match( RegExp(/\d+/, 'g') ) ?
+                [name] : {...prev[view][name], amount: !isNaN(Number(prev[view][name]['amount'])) ?
                     Number(prev[view][name].amount).toLocaleString('en-US') : ''
                 }
             }

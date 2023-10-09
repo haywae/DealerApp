@@ -262,7 +262,7 @@ function Input (props) {
         setConvt(prev=>{
             return{...prev, 
                 [view]: {...prev[view], 
-                    [name]: {...prev[view][name], input: prev[view][name]['input'].match( RegExp(/\d+/, 'g') ) ?
+                    [name]: {...prev[view][name], input: !isNaN(Number(prev[view][name]['input'])) ?
                         Number(prev[view][name]['input']).toLocaleString('en-US') : ''
                     }
                 }
