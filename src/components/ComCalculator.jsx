@@ -107,7 +107,7 @@ function CommissionMain (props) {
                 setCommissionTab(prev => ({
                     ...prev,
                     add : {...prev.add, 
-                        [name]: {...prev.add[name], commission: commission, output: result}
+                        [name]: {...prev.add[name], commission: commission, output: result.toFixed(4)}
                     }
                 }))
             }
@@ -128,7 +128,7 @@ function CommissionMain (props) {
                 setCommissionTab(prev => ({
                     ...prev,
                     remove : {...prev.remove, 
-                        [name]: {...prev.remove[name], commission: commission, output: result}
+                        [name]: {...prev.remove[name], commission: commission, output: result.toFixed(4)}
                     }
                 }))
             }

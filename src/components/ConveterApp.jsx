@@ -23,7 +23,7 @@ export default function ConverterApp() {
                 let result = ((currency[selectInput]['bv']) * formatedInput) / currency[selectOutput]['sv']
                 setConvt(prev=>({...prev, 
                     convert: {...prev.convert, 
-                        [name]: {...prev.convert[name], output: result }
+                        [name]: {...prev.convert[name], output: result.toFixed(4) }
                     }
                 }))
             }
@@ -45,7 +45,7 @@ export default function ConverterApp() {
                 let result = ((currency[selectInput]['sv']) * formatedInput) / currency[selectOutput]['bv']
                 setConvt(prev=>({...prev, 
                 findOut: {...prev.findOut, 
-                    [name]: {...prev.findOut[name], output: result}
+                    [name]: {...prev.findOut[name], output: result.toFixed(4)}
                 }
                 }))
             } 
