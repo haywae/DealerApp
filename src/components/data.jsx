@@ -45,3 +45,7 @@ export const flag = {
     TRY: "fi fi-tr",
     ZAR: "fi fi-za",
 }
+
+export const comma_dec_langs = [
+    'sq-AL', 'ca-AD', 'es-AR', 'hy-AM', 'de-AT', 'az-AZ', 'be-BY', 'ru-BY', 'fr-BE', 'es-BO'
+]

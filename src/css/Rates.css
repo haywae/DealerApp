@@ -7,7 +7,7 @@
 }
 .local-currency{
     position: absolute;
-    width: 20%;
+    width: 25%;
     font-size: small;
     right: 2%;
 }
@@ -57,6 +57,18 @@
     line-height: 1.5em;
     padding: 1%;
 
+}
+.rates-error-container{
+    margin: 1%;
+}
+.error-r1{
+    height: 5px;
+}
+.last-update{
+    font-size: small;
+    font-style: italic;
+    color: var(--darkColor);
+    text-align: center;
 }
 .rates-data{
     display: flex;
@@ -174,9 +186,6 @@ tbody{
 
 /*---dropdown---*/
 
-.rates-error-container{
-    height: 15px;
-}
 @keyframes fade {
     0% {opacity: 0;}
     20% {opacity: 1}
@@ -185,4 +194,11 @@ tbody{
 }
 .error-fade{
     animation: fade 3s ease-in-out;
+}
+
+@media only screen and (min-width: 1024px){
+    .local-currency{
+        width: 15%;
+    }
+    
 }

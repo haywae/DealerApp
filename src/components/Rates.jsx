@@ -12,6 +12,7 @@ export default function Rates(props) {
     const [openHome, setOpenHome] = useState(false);
     const [localInputText, setLocalInputText] = useState('');
     const [isStoreUpdated, setIsStoreUpdated] = useState(false); //it checks if the browser local storage has sent data to the program
+    const [lastUpdated, setLastUpdated] = useState('');
 
     const { calcConvert, calcFindOut, convt, currency, flag, rows, location, locationName, setConvt, setCurrency, setLocation, setLocationName, setRows } = props;
     const { addRow, caption, col1Heading, col2Heading, col3Heading, localCurrencyHeading } = rates
@@ -34,7 +35,7 @@ export default function Rates(props) {
         buyValue={rows[e].bv} sellValue={rows[e].sv} name={rows[e].id} ratesError={ratesError} key={rows[e].id}
         setValue={setRows} currency={currency} setErrorText={setErrorText} location={location} flag={flag} 
         setCurrency={setCurrency} selected = {rows[e].selected} rows={rows} getSelectedCurrencies={getSelectedCurrencies}
-        calcConvert={calcConvert} calcFindOut={calcFindOut} convt={convt} setConvt={setConvt} 
+        calcConvert={calcConvert} calcFindOut={calcFindOut} convt={convt} setConvt={setConvt} setLastUpdated={setLastUpdated}
         />
     })
     useEffect(()=>{
@@ -147,7 +148,10 @@ export default function Rates(props) {
             </div>
             <h3 className="rates-table-caption">{caption}</h3>
             <div className="rates-error-container">
-                <p className="error-message" ref={ratesErrorRef}>{errorText}</p>
+                <p className="last-update">{lastUpdated}</p>
+                <div className="error-r1">
+                    <p className="error-message" ref={ratesErrorRef}>{errorText}</p>
+                </div>
             </div>
             <table className="rates-table">
                 <thead>

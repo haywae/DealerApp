@@ -1,0 +1,41 @@
+.calc-main{
+    margin: 0 1%;
+    padding: 1% 0;
+}
+.calc-headings{
+    display: flex;
+    margin: 0 1%;
+    border-bottom: 2px solid var(--lightColor);
+    text-align: center;
+    font-weight: normal;
+    font-size: small;
+    height: 1.5rem;
+    justify-content: space-between;
+}
+.calc-res{
+    border-top: solid 2px var(--lightColor); 
+    border-bottom: solid 2px var(--lightColor);
+}
+.input-col, .res-col{
+    width: 15%;
+    height: 1.5rem;
+}
+.sign-col{
+    width: 10%;
+}
+.input-col > input{
+    width: 100%;
+    border: 1px solid var(--lightColor);
+    height: 100%;
+    border-radius: 5px;
+}
+.input-col > input::placeholder{
+    text-align: center;
+    font-size: x-small;
+}
+.calc-r1{
+    display: flex;
+    height: 2rem;
+    justify-content: space-between;
+    margin: 1% 0;
+}

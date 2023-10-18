@@ -11,7 +11,7 @@ export default function TableBody(props) {
     const inputRef = useRef();
     const preValue = useRef();
     const { buyValue, calcConvert, calcFindOut, convt, currency, flag, getSelectedCurrencies, location, name, rows, ratesError, selected, 
-        sellValue, setConvt, setCurrency, setErrorText, setValue
+        sellValue, setConvt, setCurrency, setErrorText, setValue, setLastUpdated
     } = props;
     const { closeRow, resetRow} = rates;
     const {ttCurrencyButton, ttResetButton, ttCloseButton} = ratesTooltips;
@@ -151,6 +151,13 @@ export default function TableBody(props) {
             return calcFindOut(e)
         })
     }
+    function getUpdate() {
+        const date = new Date().toLocaleDateString();
+        const hours = new Date().getHours()
+        const minutes = new Date().getMinutes()
+        const seconds = new Date().getSeconds()
+        return `Last Updated: ${date} - ${hours}:${minutes}:${seconds}`
+    }
     return (
         <tr className='rates-data'>
             <td className="column1" ref={preValue}>
@@ -184,6 +191,7 @@ export default function TableBody(props) {
                             })
                         }
                         reCalculateConverter()
+                        setLastUpdated(getUpdate)
                     }}
                     value={buyValue}
                     onChange={handleBuy} 
@@ -207,6 +215,7 @@ export default function TableBody(props) {
                             })
                         }
                         reCalculateConverter()
+                        setLastUpdated(getUpdate)
                     }}  
                     value={sellValue}
                     onChange={handleSell}
