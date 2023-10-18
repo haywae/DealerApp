@@ -1,7 +1,3 @@
-.calc-main{
-    margin: 0 1%;
-    padding: 1% 0;
-}
 .calc-headings{
     display: flex;
     margin: 0 1%;
@@ -12,30 +8,55 @@
     height: 1.5rem;
     justify-content: space-between;
 }
+.calc-main{
+    margin: 0 1%;
+    padding: 1% 0;
+}
+
 .calc-res{
     border-top: solid 2px var(--lightColor); 
     border-bottom: solid 2px var(--lightColor);
 }
+.res-item{
+    width: 100%;
+    margin: auto;
+    text-align: right;
+}
+.cols{
+    display: flex;
+}
 .input-col, .res-col{
-    width: 15%;
+    width: 17%;
     height: 1.5rem;
 }
 .sign-col{
-    width: 10%;
+    width: 5%;
+}
+.sign-item{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: larger;
 }
 .input-col > input{
     width: 100%;
     border: 1px solid var(--lightColor);
     height: 100%;
     border-radius: 5px;
+    text-align: right;
+    padding-right: 5px;
 }
 .input-col > input::placeholder{
     text-align: center;
     font-size: x-small;
 }
+
 .calc-r1{
     display: flex;
     height: 2rem;
     justify-content: space-between;
     margin: 1% 0;
+}
+.cols > .sub-col{
+    margin: auto;
 }

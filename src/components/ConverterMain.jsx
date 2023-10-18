@@ -158,7 +158,7 @@ export default function ConverterMain (props) {
                     />
                 }
 
-                {view === "convert"? <Input name={name} setConvt={setConvt} view={view} calcConvert={calcConvert}
+                {view === "convert"? <Input convt={convt} name={name} setConvt={setConvt} view={view} calcConvert={calcConvert}
                     calcFindOut={calcFindOut} input={convt[view][name]['input']}
                 /> : 
                     <Output changeToCurrency={changeToCurrency} output={convt[view][name]['output']}
@@ -178,7 +178,7 @@ export default function ConverterMain (props) {
                 }
 
                 {view === "convert"? <Output changeToCurrency={changeToCurrency} output={convt[view][name]['output']}/> : 
-                    <Input name={name} setConvt={setConvt} view={view} calcConvert={calcConvert} calcFindOut={calcFindOut} input={convt[view][name]['input']}
+                    <Input convt={convt} name={name} setConvt={setConvt} view={view} calcConvert={calcConvert} calcFindOut={calcFindOut} input={convt[view][name]['input']}
                 />}
             </div>
         </main>
@@ -236,7 +236,7 @@ const SelectInput = forwardRef(function SelectInput(props, ref){
 })
 
 function Input (props) {
-    const {calcConvert, calcFindOut, input, name, view, setConvt} = props;
+    const {calcConvert, calcFindOut,  input, name, view, setConvt} = props;
     //Regular Expressions is used in this component
 
     function handleChange(event) { 
@@ -260,15 +260,15 @@ function Input (props) {
     function formatValues() {
         // this will format the displayed value to the comman seperated digits
         setConvt(prev=>{
-            return{...prev, 
-                [view]: {...prev[view], 
-                    [name]: {...prev[view][name], input: !isNaN(Number(prev[view][name]['input'])) ?
-                        Number(prev[view][name]['input']).toLocaleString('en-US') : ''
+                return{...prev, 
+                    [view]: {...prev[view], 
+                        [name]: {...prev[view][name], input: !isNaN(Number(prev[view][name]['input']))  ?
+                            Number(prev[view][name]['input']).toLocaleString('en-US') : ''
+                        }
                     }
-                }
-            }
-          
+                } 
         });
+        
        
     }
 
