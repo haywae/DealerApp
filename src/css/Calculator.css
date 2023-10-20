@@ -25,8 +25,12 @@
 .cols{
     display: flex;
 }
-.input-col, .res-col{
-    width: 17%;
+.input-col{
+    width: 20%;
+    height: 1.5rem;
+}
+.res-col{
+    width: 25%;
     height: 1.5rem;
 }
 .sign-col{

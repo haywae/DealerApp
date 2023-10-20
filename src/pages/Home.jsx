@@ -16,6 +16,7 @@ export function Home(){
                 <ConverterApp/>
                 <h2 className='section-headings'>Commission Calculator</h2>
                 <ComCalculator/>
+                <h2 className="section-headings">Calculator</h2>
                 <Calculator/>
             </main>
         </div>

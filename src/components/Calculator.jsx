@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import '../css/Calculator.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
 
 export default  function Calculator() {
     const [calculator, setCalculator] = useState({
-        row1 : {input1: "", input2: "", input3: "", input4: "", result: 1},
-        row2 : {input1: "", input2: "", input3: "", input4: "", result: 0}
+        row1 : {input1: '', input2: '', input3: '', input4: '', result: 0},
+        row2 : {input1: '', input2: '', input3: '', input4: '', result: 0}
     })
     
     function handleChange(event) {
@@ -28,16 +31,33 @@ export default  function Calculator() {
         setCalculator(prev=>{
             return{...prev, 
                 [name]: {...prev[name], 
-                    [id]: !isNaN(Number(prev[name][id]))  ?
-                    Number(prev[name][id]).toLocaleString('en-US') : ''
+                    [id]: !isNaN( Number(prev[name][id]) ) ?
+                    Number(prev[name][id]).toLocaleString('en-US') : prev[name][id] 
                 }
             }    
         });
-       
     }
 
     function addCalc(){
-        
+        let sum = 0
+        const keys = Object.keys(calculator.row1)
+        for (let i = 0; i < 3; i++) {
+            const formatedInput = calculator.row1[keys[i]].replace(/,/g, '') 
+            if ( !isNaN( Number(formatedInput)) )  {
+                sum += Number(formatedInput)
+            }
+        }
+        setCalculator(prev=>{
+            return{...prev,
+                row1: {...prev.row1,
+                    result: sum.toLocaleString('en-US')
+                }
+            }
+        })
+    }
+    function subCalc(){
+        let result = 0
+        const keys = Object.keys(calculator.row2)
     }
 
     return (
@@ -46,7 +66,6 @@ export default  function Calculator() {
                 <div className="input-col cols"><h3 className='sub-col'>Input 1</h3></div>
                 <div className="input-col cols"><h3 className='sub-col'>Input 2</h3></div>
                 <div className="input-col cols"><h3 className='sub-col'>Input 3</h3></div>
-                <div className="input-col cols"><h3 className='sub-col'>Input 4</h3></div>
                 <div className="sign-col cols"></div>
                 <div className="res-col cols">
                     <h3 className='sub-col' >Result</h3>
@@ -57,19 +76,22 @@ export default  function Calculator() {
             <div className='calc-main'>
                 <div className="calc-r1">
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row1.input1} name='row1' id='input1' onChange={handleChange} onBlur={formatValues}/>
+                        <input type="text" placeholder='Amount' value={calculator.row1.input1} name='row1' id='input1' onChange={handleChange} 
+                            onBlur={(e)=>{formatValues(e); addCalc()}} onFocus={(e)=>{e.target.select()}}
+                        />
                     </div>
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row1.input2} name='row1' id='input2' onChange={handleChange} onBlur={formatValues}/>
+                        <input type="text" placeholder='Amount' value={calculator.row1.input2} name='row1' id='input2' onChange={handleChange} 
+                            onBlur={(e)=>{formatValues(e); addCalc()}} onFocus={(e)=>{e.target.select()}}
+                        />
                     </div>
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row1.input3} name='row1' id='input3' onChange={handleChange} onBlur={formatValues}/>
-                    </div>
-                    <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row1.input4} name='row1' id='input4' onChange={handleChange} onBlur={formatValues}/>
+                        <input type="text" placeholder='Amount' value={calculator.row1.input3} name='row1' id='input3' onChange={handleChange} 
+                            onBlur={(e)=>{formatValues(e); addCalc()}} onFocus={(e)=>{e.target.select()}}
+                        />
                     </div>
                     <div className='sign-col cols'>
-                        <p className='sign-item'>+</p>
+                        <p className='sign-item'><FontAwesomeIcon icon={faPlus}/></p>
                     </div>
                     <div className='res-col cols calc-res'>
                         <p className='res-item'>{calculator.row1.result}</p>
@@ -77,19 +99,19 @@ export default  function Calculator() {
                 </div>
                 <div className="calc-r1">
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input1} name='row2' id='input1' onChange={handleChange} onBlur={formatValues}/>
+                        <input type="text" placeholder='Amount' value={calculator.row2.input1} name='row2' id='input1' onChange={handleChange} onBlur={formatValues}
+                            onFocus={(e)=>{e.target.select()}}/>
                     </div>
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input2} name='row2' id='input2' onChange={handleChange} onBlur={formatValues}/>
+                        <input type="text" placeholder='Amount' value={calculator.row2.input2} name='row2' id='input2' onChange={handleChange} onBlur={formatValues}
+                            onFocus={(e)=>{e.target.select()}}/>
                     </div>
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input3} name='row2' id='input3' onChange={handleChange} onBlur={formatValues}/>
-                    </div>
-                    <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input4} name='row2' id='input4' onChange={handleChange} onBlur={formatValues}/>
+                        <input type="text" placeholder='Amount' value={calculator.row2.input3} name='row2' id='input3' onChange={handleChange} onBlur={formatValues}
+                            onFocus={(e)=>{e.target.select()}}/>
                     </div>
                     <div className='sign-col cols'>
-                        <p className='sign-item'>-</p>
+                        <p className='sign-item'><FontAwesomeIcon icon={faMinus}/></p>
                     </div>
                     <div className='res-col cols calc-res'>
                         <p className='res-item'>{calculator.row2.result}</p>
