@@ -63,6 +63,7 @@
     margin: auto 0 auto 5%;
     color: var(--darkColor);
     padding-right: 1%;
+    overflow: auto;
 }
 .comm-output-container > .ttText{
     font-size: small;

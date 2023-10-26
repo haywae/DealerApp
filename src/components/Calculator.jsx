@@ -28,14 +28,16 @@ export default  function Calculator() {
     function formatValues(e) {
         // this will format the displayed value to the comman seperated digits
         const {name, id} = e.target;
-        setCalculator(prev=>{
-            return{...prev, 
-                [name]: {...prev[name], 
-                    [id]: !isNaN( Number(prev[name][id]) ) ?
-                    Number(prev[name][id]).toLocaleString('en-US') : prev[name][id] 
-                }
-            }    
-        });
+        if (calculator[name][id]) {
+            setCalculator(prev=>{
+                return{...prev, 
+                    [name]: {...prev[name], 
+                        [id]: !isNaN( Number(prev[name][id]) ) ?
+                        Number(prev[name][id]).toLocaleString('en-US') : '' 
+                    }
+                }    
+            });
+        }
     }
 
     function addCalc(){
@@ -43,9 +45,7 @@ export default  function Calculator() {
         const keys = Object.keys(calculator.row1)
         for (let i = 0; i < 3; i++) {
             const formatedInput = calculator.row1[keys[i]].replace(/,/g, '') 
-            if ( !isNaN( Number(formatedInput)) )  {
-                sum += Number(formatedInput)
-            }
+            sum += Number(formatedInput)
         }
         setCalculator(prev=>{
             return{...prev,
@@ -56,8 +56,27 @@ export default  function Calculator() {
         })
     }
     function subCalc(){
-        let result = 0
+        let result = 0;
+        let base = {value: 0, status: ''}
         const keys = Object.keys(calculator.row2)
+        for (let i = 0; i < 3; i++) {
+            const formatedInput = calculator.row2[keys[i]].replace(/,/g, '')
+            if ( formatedInput !== '' && formatedInput !== 0 && base.status === 'set' ){
+                result -= Number(formatedInput)
+            }
+            if ( formatedInput !== '' && formatedInput !== 0 && base.value === 0)  {
+                base.value = Number(formatedInput);
+                base.status = 'set';
+                result = base.value
+            } 
+        }
+        setCalculator(prev=>{
+            return{...prev,
+                row2: {...prev.row2,
+                    result: result.toLocaleString('en-US')
+                }
+            }
+        })
     }
 
     return (
@@ -99,15 +118,15 @@ export default  function Calculator() {
                 </div>
                 <div className="calc-r1">
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input1} name='row2' id='input1' onChange={handleChange} onBlur={formatValues}
+                        <input type="text" placeholder='Amount' value={calculator.row2.input1} name='row2' id='input1' onChange={handleChange} onBlur={(e)=>{formatValues(e); subCalc()}}
                             onFocus={(e)=>{e.target.select()}}/>
                     </div>
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input2} name='row2' id='input2' onChange={handleChange} onBlur={formatValues}
+                        <input type="text" placeholder='Amount' value={calculator.row2.input2} name='row2' id='input2' onChange={handleChange} onBlur={(e)=>{formatValues(e); subCalc()}}
                             onFocus={(e)=>{e.target.select()}}/>
                     </div>
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input3} name='row2' id='input3' onChange={handleChange} onBlur={formatValues}
+                        <input type="text" placeholder='Amount' value={calculator.row2.input3} name='row2' id='input3' onChange={handleChange} onBlur={(e)=>{formatValues(e); subCalc()}}
                             onFocus={(e)=>{e.target.select()}}/>
                     </div>
                     <div className='sign-col cols'>

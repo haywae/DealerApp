@@ -201,6 +201,7 @@ function CommissionMain (props) {
             </div>
             <div className="comm-row2">
                 {view === 'remove'? <Amount 
+                    commissionTab={commissionTab}
                     view={view} calcAdd={calcAdd} calcRemove={calcRemove} setCommissionTab={setCommissionTab} defaultOnFocus={defaultOnFocus}
                     name={name} amount={commissionTab[view][name].amount}
                 /> : <Output output={commissionTab[view][name].output} changeToCurrency={changeToCurrency}/>} 
@@ -216,6 +217,7 @@ function CommissionMain (props) {
                 </div>
                 {view === 'remove' ? <Output output={commissionTab[view][name].output} changeToCurrency={changeToCurrency} 
                 /> : <Amount 
+                    commissionTab={commissionTab}
                     view={view} calcAdd={calcAdd} calcRemove={calcRemove} setCommissionTab={setCommissionTab}  defaultOnFocus={defaultOnFocus} 
                     name={name} amount={commissionTab[view][name].amount}
                 /> } 
@@ -225,7 +227,7 @@ function CommissionMain (props) {
 }
 
 function Amount(props){
-    const {amount, calcAdd, calcRemove, defaultOnFocus, setCommissionTab, name, view} = props;
+    const {amount, calcAdd, calcRemove, commissionTab, defaultOnFocus, setCommissionTab, name, view} = props;
 
     const regex1 = /[^0-9.]/g //characters other than period and digits
     const regex2 = /^(0)(\d+)/g //input that begins with 0
@@ -245,14 +247,16 @@ function Amount(props){
     }
 
     function formatValues () {
-        setCommissionTab(prev => ({
-            ...prev,
-            [view]: {...prev[view], 
-                [name] : {...prev[view][name], amount: !isNaN(Number(prev[view][name]['amount'])) ?
-                    Number(prev[view][name].amount).toLocaleString('en-US') : ''
+        if(commissionTab[view][name]['amount']){
+            setCommissionTab(prev => ({
+                ...prev,
+                [view]: {...prev[view], 
+                    [name] : {...prev[view][name], amount: !isNaN(Number(prev[view][name]['amount'])) ?
+                        Number(prev[view][name].amount).toLocaleString('en-US') : ''
+                    }
                 }
-            }
-        }))
+            }))
+        }
     }
     
     return (

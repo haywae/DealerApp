@@ -236,7 +236,7 @@ const SelectInput = forwardRef(function SelectInput(props, ref){
 })
 
 function Input (props) {
-    const {calcConvert, calcFindOut,  input, name, view, setConvt} = props;
+    const {calcConvert, calcFindOut, convt, input, name, view, setConvt} = props;
     //Regular Expressions is used in this component
 
     function handleChange(event) { 
@@ -259,7 +259,8 @@ function Input (props) {
     }
     function formatValues() {
         // this will format the displayed value to the comman seperated digits
-        setConvt(prev=>{
+        if (convt[view][name]['input']){
+            setConvt(prev=>{
                 return{...prev, 
                     [view]: {...prev[view], 
                         [name]: {...prev[view][name], input: !isNaN(Number(prev[view][name]['input']))  ?
@@ -267,9 +268,8 @@ function Input (props) {
                         }
                     }
                 } 
-        });
-        
-       
+            });
+        }
     }
 
     return (  

@@ -1,11 +1,13 @@
+
 .calc-headings{
     display: flex;
-    margin: 0 1%;
+    margin: 0 ;
+    border-radius: 5px 5px 0 0;
+    border-top: 4px solid var(--lightColor);
     border-bottom: 2px solid var(--lightColor);
     text-align: center;
     font-weight: normal;
     font-size: small;
-    height: 1.5rem;
     justify-content: space-between;
 }
 .calc-main{
@@ -21,6 +23,7 @@
     width: 100%;
     margin: auto;
     text-align: right;
+    overflow: auto;
 }
 .cols{
     display: flex;
