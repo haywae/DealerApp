@@ -55,6 +55,13 @@ export default  function Calculator() {
             }
         })
     }
+    function defaultOnFocus(e){
+        const {name} = e.target
+        setCalculator(prev=>({
+            ...prev,
+            [name] : {...prev[name], result: 0}
+        }))
+    }
     function subCalc(){
         let result = 0;
         let base = {value: 0, status: ''}
@@ -96,44 +103,44 @@ export default  function Calculator() {
                 <div className="calc-r1">
                     <div className='input-col cols'>
                         <input type="text" placeholder='Amount' value={calculator.row1.input1} name='row1' id='input1' onChange={handleChange} 
-                            onBlur={(e)=>{formatValues(e); addCalc()}} onFocus={(e)=>{e.target.select()}}
+                            onBlur={(e)=>{formatValues(e); addCalc()}} onFocus={(e)=>{e.target.select(); defaultOnFocus(e)}}
                         />
                     </div>
                     <div className='input-col cols'>
                         <input type="text" placeholder='Amount' value={calculator.row1.input2} name='row1' id='input2' onChange={handleChange} 
-                            onBlur={(e)=>{formatValues(e); addCalc()}} onFocus={(e)=>{e.target.select()}}
+                            onBlur={(e)=>{formatValues(e); addCalc()}} onFocus={(e)=>{e.target.select(); defaultOnFocus(e)}}
                         />
                     </div>
                     <div className='input-col cols'>
                         <input type="text" placeholder='Amount' value={calculator.row1.input3} name='row1' id='input3' onChange={handleChange} 
-                            onBlur={(e)=>{formatValues(e); addCalc()}} onFocus={(e)=>{e.target.select()}}
+                            onBlur={(e)=>{formatValues(e); addCalc()}} onFocus={(e)=>{e.target.select(); defaultOnFocus(e)}}
                         />
                     </div>
                     <div className='sign-col cols'>
                         <p className='sign-item'><FontAwesomeIcon icon={faPlus}/></p>
                     </div>
                     <div className='res-col cols calc-res'>
-                        <p className='res-item'>{calculator.row1.result}</p>
+                        <p className='res-item' name='row1'>{calculator.row1.result}</p>
                     </div>
                 </div>
                 <div className="calc-r1">
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input1} name='row2' id='input1' onChange={handleChange} onBlur={(e)=>{formatValues(e); subCalc()}}
-                            onFocus={(e)=>{e.target.select()}}/>
+                        <input type="text" placeholder='Amount' value={calculator.row2.input1} name='row2' id='input1' onChange={handleChange} 
+                        onBlur={(e)=>{formatValues(e); subCalc()}} onFocus={(e)=>{e.target.select(); defaultOnFocus(e)}}/>
                     </div>
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input2} name='row2' id='input2' onChange={handleChange} onBlur={(e)=>{formatValues(e); subCalc()}}
-                            onFocus={(e)=>{e.target.select()}}/>
+                        <input type="text" placeholder='Amount' value={calculator.row2.input2} name='row2' id='input2' onChange={handleChange} 
+                        onBlur={(e)=>{formatValues(e); subCalc()}} onFocus={(e)=>{e.target.select(); defaultOnFocus(e)}}/>
                     </div>
                     <div className='input-col cols'>
-                        <input type="text" placeholder='Amount' value={calculator.row2.input3} name='row2' id='input3' onChange={handleChange} onBlur={(e)=>{formatValues(e); subCalc()}}
-                            onFocus={(e)=>{e.target.select()}}/>
+                        <input type="text" placeholder='Amount' value={calculator.row2.input3} name='row2' id='input3' onChange={handleChange} 
+                        onBlur={(e)=>{formatValues(e); subCalc()}} onFocus={(e)=>{e.target.select(); defaultOnFocus(e)}}/>
                     </div>
                     <div className='sign-col cols'>
                         <p className='sign-item'><FontAwesomeIcon icon={faMinus}/></p>
                     </div>
                     <div className='res-col cols calc-res'>
-                        <p className='res-item'>{calculator.row2.result}</p>
+                        <p className='res-item' name='row2'>{calculator.row2.result}</p>
                     </div>
                 </div>
             </div>
