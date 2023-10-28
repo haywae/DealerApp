@@ -66,9 +66,9 @@
 }
 .last-update{
     font-size: small;
-    font-style: italic;
     color: var(--darkColor);
     text-align: center;
+    height: 1rem;
 }
 .rates-data{
     display: flex;

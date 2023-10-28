@@ -259,12 +259,12 @@ function Input (props) {
     }
     function formatValues() {
         // this will format the displayed value to the comman seperated digits
-        if (convt[view][name]['input']){
+        if (convt[view][name]['input'] && !isNaN(Number(convt[view][name]['input']))){
             setConvt(prev=>{
                 return{...prev, 
                     [view]: {...prev[view], 
-                        [name]: {...prev[view][name], input: !isNaN(Number(prev[view][name]['input']))  ?
-                            Number(prev[view][name]['input']).toLocaleString('en-US') : ''
+                        [name]: {...prev[view][name], input: 
+                            Number(prev[view][name]['input']).toLocaleString('en-US') 
                         }
                     }
                 } 

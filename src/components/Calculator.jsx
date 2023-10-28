@@ -28,12 +28,12 @@ export default  function Calculator() {
     function formatValues(e) {
         // this will format the displayed value to the comman seperated digits
         const {name, id} = e.target;
-        if (calculator[name][id]) {
+        if (calculator[name][id] && !isNaN(calculator[name][id]))  {
             setCalculator(prev=>{
                 return{...prev, 
                     [name]: {...prev[name], 
-                        [id]: !isNaN( Number(prev[name][id]) ) ?
-                        Number(prev[name][id]).toLocaleString('en-US') : '' 
+                        [id]: 
+                        Number(prev[name][id]).toLocaleString('en-US') 
                     }
                 }    
             });

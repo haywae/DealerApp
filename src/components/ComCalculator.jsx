@@ -247,12 +247,12 @@ function Amount(props){
     }
 
     function formatValues () {
-        if(commissionTab[view][name]['amount']){
+        if(commissionTab[view][name]['amount'] && !isNaN(Number(commissionTab[view][name]['amount'])) ){
             setCommissionTab(prev => ({
                 ...prev,
                 [view]: {...prev[view], 
-                    [name] : {...prev[view][name], amount: !isNaN(Number(prev[view][name]['amount'])) ?
-                        Number(prev[view][name].amount).toLocaleString('en-US') : ''
+                    [name] : {...prev[view][name], amount:
+                        Number(prev[view][name].amount).toLocaleString('en-US') 
                     }
                 }
             }))
