@@ -47,14 +47,17 @@ export default  function Calculator() {
             const formatedInput = calculator.row1[keys[i]].replace(/,/g, '') 
             sum += Number(formatedInput)
         }
-        setCalculator(prev=>{
-            return{...prev,
-                row1: {...prev.row1,
-                    result: sum.toLocaleString('en-US')
+        if (Number(sum)) {
+            setCalculator(prev=>{
+                return{...prev,
+                    row1: {...prev.row1,
+                        result: sum.toLocaleString('en-US')
+                    }
                 }
-            }
-        })
+            })
+        }
     }
+
     function defaultOnFocus(e){
         const {name} = e.target
         setCalculator(prev=>({
@@ -77,13 +80,15 @@ export default  function Calculator() {
                 result = base.value
             } 
         }
-        setCalculator(prev=>{
-            return{...prev,
-                row2: {...prev.row2,
-                    result: result.toLocaleString('en-US')
+        if (Number(result)){
+            setCalculator(prev=>{
+                return{...prev,
+                    row2: {...prev.row2,
+                        result: result.toLocaleString('en-US')
+                    }
                 }
-            }
-        })
+            })
+        } 
     }
 
     return (
