@@ -197,7 +197,7 @@ export default function TableBody(props) {
                     onChange={handleBuy} 
                     onFocus={e => e.target.select()}
                     type="number"
-                    step='0.001'
+                    step='0.01'
                 />
             </td>
 
@@ -221,7 +221,7 @@ export default function TableBody(props) {
                     onChange={handleSell}
                     onFocus={e => e.target.select()}
                     type="number"
-                    step='0.001'
+                    step='0.01'
                 />
             </td>
             <td className='column4'>
