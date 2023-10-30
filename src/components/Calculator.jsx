@@ -3,6 +3,8 @@ import '../css/Calculator.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import { faRefresh } from '@fortawesome/free-solid-svg-icons' 
 
 export default  function Calculator() {
     const [calculator, setCalculator] = useState({
@@ -91,6 +93,10 @@ export default  function Calculator() {
         } 
     }
 
+    function resetRow() {
+        
+    }
+
     return (
         <div className="cards calculator-card">
             <div className="calc-headings">
@@ -105,6 +111,10 @@ export default  function Calculator() {
 
             </div>
             <div className='calc-main'>
+                <div className='calc-r0'>
+                    <button> <FontAwesomeIcon icon={faCopy}/> </button>
+                    <button> <FontAwesomeIcon icon={faRefresh}/> </button>
+                </div>
                 <div className="calc-r1">
                     <div className='input-col cols'>
                         <input type="text" placeholder='Amount' value={calculator.row1.input1} name='row1' id='input1' onChange={handleChange} 
@@ -127,6 +137,10 @@ export default  function Calculator() {
                     <div className='res-col cols calc-res'>
                         <p className='res-item' name='row1'>{calculator.row1.result}</p>
                     </div>
+                </div>
+                <div className='calc-r0'>
+                    <button> <FontAwesomeIcon icon={faCopy}/> </button>
+                    <button> <FontAwesomeIcon icon={faRefresh}/> </button>
                 </div>
                 <div className="calc-r1">
                     <div className='input-col cols'>

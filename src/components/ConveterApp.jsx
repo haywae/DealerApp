@@ -17,20 +17,11 @@ export default function ConverterApp() {
     function calcConvert(name) {
         const {input, selectInput, selectOutput} = convt.convert[name];
         const formatedInput = Number( input.replace(/,/g, '') )
-
-        if (selectInput !== "choose" && input!== "" && selectOutput !== "choose") {
-            if (currency[selectInput] !== 0 && currency[selectOutput] !== 0){
-                let result = ((currency[selectInput]['bv']) * formatedInput) / currency[selectOutput]['sv']
-                setConvt(prev=>({...prev, 
-                    convert: {...prev.convert, 
-                        [name]: {...prev.convert[name], output: result.toFixed(4) }
-                    }
-                }))
-            }
-        } else {
+        let result = ((currency[selectInput]['bv']) * formatedInput) / currency[selectOutput]['sv']
+        if (Number(result)){
             setConvt(prev=>({...prev, 
                 convert: {...prev.convert, 
-                    [name]: {...prev.convert[name], output: 0 }
+                    [name]: {...prev.convert[name], output: result.toFixed(4) }
                 }
             }))
         }
@@ -39,23 +30,14 @@ export default function ConverterApp() {
     function calcFindOut(name) {
         const {input, selectInput, selectOutput} = convt.findOut[name]
         const formatedInput = Number( input.replace(/,/g, '') )
-
-        if (selectInput !== "choose" && input !== "" && selectOutput !== "choose") {
-            if (currency[selectInput] !== 0 && currency[selectOutput] !== 0){
-                let result = ((currency[selectInput]['sv']) * formatedInput) / currency[selectOutput]['bv']
-                setConvt(prev=>({...prev, 
+        let result = ((currency[selectInput]['sv']) * formatedInput) / currency[selectOutput]['bv']
+        if (Number(result)) {
+            setConvt(prev=>({...prev, 
                 findOut: {...prev.findOut, 
                     [name]: {...prev.findOut[name], output: result.toFixed(4)}
                 }
-                }))
-            } 
-        } else{
-            setConvt(prev=>({...prev, 
-                findOut: {...prev.findOut, 
-                  [name]: {...prev.findOut[name], output: 0}
-                }
             }))
-        }
+        } 
     }
 
     useEffect(()=>{

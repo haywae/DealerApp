@@ -100,7 +100,7 @@ function CommissionMain (props) {
         if (amount !== "" && rate !== "") {
             let calcRate = 1-(rate/100);
 
-            if (formatedAmount !== 0 && calcRate !==0) {
+            if (Number(formatedAmount) && Number(calcRate) ) {
                 let result = formatedAmount / calcRate;
                 let commission = result - formatedAmount;
 
@@ -121,7 +121,7 @@ function CommissionMain (props) {
         if (amount !== "" && rate !== "") {
             let calcRate = 1-(rate/100)
 
-            if (formatedAmount !== 0 && calcRate !== 0) {
+            if (Number(formatedAmount) && Number(calcRate)) {
                 let result = formatedAmount * calcRate;
                 let commission = formatedAmount - result;
     
@@ -186,8 +186,10 @@ function CommissionMain (props) {
     return (
         <main className="card-main comm-main" >
             <div className={`${view === "remove" ? "comm-row1" : "comm-row1-2"}`}>
-                <button type="button" className={`${commissionTab[view][name].id > 1 ? 'comm-copy1' : 'comm-copy2'} copy-button  ttButton`}>
-                    <FontAwesomeIcon icon={faCopy} onClick={()=>{navigator.clipboard.writeText(commissionTab[view][name].output)}}/>
+                <button type="button" className={`${commissionTab[view][name].id > 1 ? 'comm-copy1' : 'comm-copy2'} copy-button  ttButton`} 
+                    onClick={()=>{navigator.clipboard.writeText(commissionTab[view][name].output)}}
+                >
+                    <FontAwesomeIcon icon={faCopy} />
                     <span className="ttText right-tt">{ttCopyResult}</span>
                 </button>
                 <button type='button'className="reset-button converter-reset ttButton " onClick={resetRow}>
