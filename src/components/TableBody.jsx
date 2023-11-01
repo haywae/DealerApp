@@ -151,12 +151,15 @@ export default function TableBody(props) {
             return calcFindOut(e)
         })
     }
+    function addZero(num)  {
+        return num < 10 ? `0${num}` : num;
+    }
     function getUpdate() {
         const date = new Date().toLocaleDateString('en-UK');
         const hours = new Date().getHours()
         const minutes = new Date().getMinutes()
         const seconds = new Date().getSeconds()
-        return `Last Updated: ${date} - ${hours}:${minutes}:${seconds}`
+        return `Last Updated: ${date} - ${addZero(hours)}:${addZero(minutes)}:${addZero(seconds)}`
     }
     return (
         <tr className='rates-data'>

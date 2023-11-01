@@ -8,8 +8,8 @@ import { faRefresh } from '@fortawesome/free-solid-svg-icons'
 
 export default  function Calculator() {
     const [calculator, setCalculator] = useState({
-        row1 : {input1: '', input2: '', input3: '', input4: '', result: 0},
-        row2 : {input1: '', input2: '', input3: '', input4: '', result: 0}
+        row1 : {input1: '', input2: '', input3: '',  result: 0},
+        row2 : {input1: '', input2: '', input3: '',  result: 0}
     })
     
     function handleChange(event) {
@@ -93,9 +93,18 @@ export default  function Calculator() {
         } 
     }
 
-    function resetRow() {
-        
+    function resetRow(e) {
+        const {id} = e.target
+        setCalculator(prev=>{  
+            return{...prev,
+                [id] : {
+                    input1: '', input2: '', input3: '', result: 0
+                }
+            }
+        })
     }
+
+    
 
     return (
         <div className="cards calculator-card">
@@ -112,8 +121,8 @@ export default  function Calculator() {
             </div>
             <div className='calc-main'>
                 <div className='calc-r0'>
-                    <button> <FontAwesomeIcon icon={faCopy}/> </button>
-                    <button> <FontAwesomeIcon icon={faRefresh}/> </button>
+                    <button onClick={()=>{navigator.clipboard.writeText(calculator.row1.result)}} > <FontAwesomeIcon icon={faCopy}/> </button>
+                    <button onClick={resetRow} > <FontAwesomeIcon icon={faRefresh} id='row1' /> </button>
                 </div>
                 <div className="calc-r1">
                     <div className='input-col cols'>
@@ -139,8 +148,8 @@ export default  function Calculator() {
                     </div>
                 </div>
                 <div className='calc-r0'>
-                    <button> <FontAwesomeIcon icon={faCopy}/> </button>
-                    <button> <FontAwesomeIcon icon={faRefresh}/> </button>
+                    <button onClick={()=>{navigator.clipboard.writeText(calculator.row2.result)}}> <FontAwesomeIcon icon={faCopy}/> </button>
+                    <button onClick={resetRow} > <FontAwesomeIcon icon={faRefresh} id='row2'/> </button>
                 </div>
                 <div className="calc-r1">
                     <div className='input-col cols'>

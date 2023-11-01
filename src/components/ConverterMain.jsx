@@ -131,21 +131,20 @@ export default function ConverterMain (props) {
 
     return ( 
         <main className="card-main converter-main" ref={main}>
-            <div className="converter-row1">
-                <div className={`${view ==='findOut'? 'copy-reset-container2' : 'copy-reset-container1'}`}>
-                    <button type="button" className={`${ convt[view][name]['id'] !== 1 ? 'convt-copy2': 'convt-copy1'} ttButton copy-button`} onClick={()=>{navigator.clipboard.writeText(convt[view][name].output)}}>
+                <div className={`${view ==='findOut'? 'copy-reset-container2' : 'copy-reset-container1'} convt-r0`}>
+                    <button type="button" className={`${ convt[view][name]['id'] !== 1 ? 'convt-copy2': 'convt-copy1'} ttButton`} onClick={()=>{navigator.clipboard.writeText(convt[view][name].output)}}>
                         {copyOutput}
                         <span className="ttText right-tt">{ttCopyResult}</span>
                     </button>
-                    <button type='button'className="reset-button converter-reset ttButton" onClick={resetConverter}>
+                    <button type='button'className=" ttButton" onClick={resetConverter}>
                         {resetRow}
                         <span className="ttText right-tt">{ttReset}</span>
                     </button>
-                    {convt[view][name]['id'] !== 1 && <button type="button" onClick={removeConverter} className="converter-remove remove-button ttButton">
+                    {convt[view][name]['id'] !== 1 && <button type="button" onClick={removeConverter} className="ttButton">
                         {closeRow}
                         <span className="ttText right-tt">{ttCloseButton}</span>
                     </button>}
-                </div>
+
             </div>
 
             <div className="converter-row2" >

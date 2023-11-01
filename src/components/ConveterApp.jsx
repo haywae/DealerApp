@@ -17,27 +17,31 @@ export default function ConverterApp() {
     function calcConvert(name) {
         const {input, selectInput, selectOutput} = convt.convert[name];
         const formatedInput = Number( input.replace(/,/g, '') )
-        let result = ((currency[selectInput]['bv']) * formatedInput) / currency[selectOutput]['sv']
-        if (Number(result)){
-            setConvt(prev=>({...prev, 
-                convert: {...prev.convert, 
-                    [name]: {...prev.convert[name], output: result.toFixed(4) }
-                }
-            }))
+        if (selectInput !== 'choose' && selectOutput !== 'choose'){
+            let result = (currency[selectInput]['bv'] * formatedInput) / currency[selectOutput]['sv']
+            if (Number(result)){
+                setConvt(prev=>({...prev, 
+                    convert: {...prev.convert, 
+                        [name]: {...prev.convert[name], output: result.toFixed(4) }
+                    }
+                }))
+            }
         }
     }
 
     function calcFindOut(name) {
         const {input, selectInput, selectOutput} = convt.findOut[name]
         const formatedInput = Number( input.replace(/,/g, '') )
-        let result = ((currency[selectInput]['sv']) * formatedInput) / currency[selectOutput]['bv']
-        if (Number(result)) {
-            setConvt(prev=>({...prev, 
-                findOut: {...prev.findOut, 
-                    [name]: {...prev.findOut[name], output: result.toFixed(4)}
-                }
-            }))
-        } 
+        if (selectInput !== 'choose' && selectOutput !== ' choose'){
+            let result = ((currency[selectInput]['sv']) * formatedInput) / currency[selectOutput]['bv']
+            if (Number(result)) {
+                setConvt(prev=>({...prev, 
+                    findOut: {...prev.findOut, 
+                        [name]: {...prev.findOut[name], output: result.toFixed(4)}
+                    }
+                }))
+            }
+        }
     }
 
     useEffect(()=>{

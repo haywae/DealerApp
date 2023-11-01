@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlus, faUndo, faClose, faCopy, faMinus, faPercentage, faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons"
+import { faPlus, faClose, faCopy, faMinus, faPercentage, faArrowRightArrowLeft, faRefresh } from "@fortawesome/free-solid-svg-icons"
 
 export const rates = {
     caption: 'Rates',
@@ -9,7 +9,7 @@ export const rates = {
     col3Heading: 'SELL',
     addRow: <FontAwesomeIcon icon={faPlus}/>,
     closeRow: <FontAwesomeIcon icon={faClose}/>,
-    resetRow: <FontAwesomeIcon icon={faUndo}/>
+    resetRow: <FontAwesomeIcon icon={faRefresh}/>
 }
 
 export const converterDetails = {
@@ -20,7 +20,7 @@ export const converterDetails = {
     addRow: <FontAwesomeIcon icon={faPlus}/>,
     copyOutput: <FontAwesomeIcon icon={faCopy}/>,
     closeRow: <FontAwesomeIcon icon={faClose}/>,
-    resetRow: <FontAwesomeIcon icon={faUndo}/>,
+    resetRow: <FontAwesomeIcon icon={faRefresh}/>,
     switchButton: <FontAwesomeIcon icon={faArrowRightArrowLeft}/>,
     tab1DescriptionText: 'Convert to another currency',
     tab2DescriptionText: 'Find out the cost of a currency before conversion'
@@ -38,7 +38,7 @@ export const commissionDetails = {
     heading4: 'Result',
     copyOutput: <FontAwesomeIcon icon={faCopy}/>,
     closeRow: <FontAwesomeIcon icon={faClose}/>,
-    resetRow: <FontAwesomeIcon icon={faUndo}/>,
+    resetRow: <FontAwesomeIcon icon={faRefresh}/>,
     tab1DescriptionText: 'Remove percentage from an amount',
     tab2DescriptionText: 'Add percentage to an amount before deduction'
 }

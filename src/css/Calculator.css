@@ -62,9 +62,13 @@
     justify-content: right;
 }
 .calc-r0 > button {
-    margin: 1%;
+    margin: 0 1%;
     color: gray;
     background-color: white;
+    cursor: pointer;
+}
+.calc-r0 > button:hover{
+    color: black;
 }
 .calc-r1{
     display: flex;

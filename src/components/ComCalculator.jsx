@@ -3,7 +3,7 @@ import '../css/ComCalculator.css';
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { commissionDetails, commissionTooltips } from "./text";
-import { faCopy, faUndo, faClose} from "@fortawesome/free-solid-svg-icons";
+import { faCopy, faClose, faRefresh} from "@fortawesome/free-solid-svg-icons";
 
 export default function ComCalculator () {
     const [view, setView] = useState("remove");
@@ -185,18 +185,18 @@ function CommissionMain (props) {
 
     return (
         <main className="card-main comm-main" >
-            <div className={`${view === "remove" ? "comm-row1" : "comm-row1-2"}`}>
-                <button type="button" className={`${commissionTab[view][name].id > 1 ? 'comm-copy1' : 'comm-copy2'} copy-button  ttButton`} 
+            <div className={`${view === "remove" ? "comm-row1" : "comm-row1-2"} comm-r0`}>
+                <button type="button" className={`${commissionTab[view][name].id > 1 ? 'comm-copy1' : 'comm-copy2'}  ttButton`} 
                     onClick={()=>{navigator.clipboard.writeText(commissionTab[view][name].output)}}
                 >
                     <FontAwesomeIcon icon={faCopy} />
                     <span className="ttText right-tt">{ttCopyResult}</span>
                 </button>
-                <button type='button'className="reset-button converter-reset ttButton " onClick={resetRow}>
-                    <FontAwesomeIcon icon={faUndo} />
+                <button type='button'className="ttButton " onClick={resetRow}>
+                    <FontAwesomeIcon icon={faRefresh} />
                     <span className="ttText right-tt">{ttReset}</span>
                 </button>
-                {commissionTab[view][name].id > 1 && <button type="button" onClick={removeConverter} className="add-remove remove-button ttButton ">
+                {commissionTab[view][name].id > 1 && <button type="button" onClick={removeConverter} className="ttButton ">
                     <FontAwesomeIcon icon={faClose} />
                     <span className="ttText right-tt">{ttCloseButton}</span>
                 </button>}

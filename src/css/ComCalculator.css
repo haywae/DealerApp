@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
 }
-.comm-headings, .comm-row1, .comm-row1-2 {
+.comm-headings {
     font-size: small;
     margin: 1% 0;
 }
@@ -15,19 +15,21 @@
     text-align: center;
     font-weight: normal;
 }
-.comm-row1{
+.comm-row1, .comm-row1-2{
     display: flex;
     justify-content: right;
-    text-align: right;
-    height: 1.5em;
 }
-.comm-row1-2{
-    display: flex;
-    justify-content: right;
-    text-align: right;
-    height: 1.5em;
+.comm-r0 > button{
+    margin: 0 1%;
+    color: grey;
+    background-color: white;
+    cursor: pointer;
+}
+.comm-r0 > button :hover{
+    color: black;
 }
 .comm-row2{
+    margin: 1% 0;
     height: 30px;
 }
 .comm-col1, .comm-col3, .comm-col4{

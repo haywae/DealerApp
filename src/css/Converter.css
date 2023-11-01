@@ -68,12 +68,18 @@
     border-top: 2px solid var(--lightColor);
     position: relative;
 }
-.converter-remove{
-    height: 1.5em;
+.convt-r0 > button{
+    margin: 0 1%;
+    color: gray;
+    background-color: white;
+}
+.convt-r0 > button:hover{
+    color: black;
 }
 .converter-row2{
     display: flex;
     justify-content: space-between;
+    margin: 1% 0;
 }
 .inactive{
     display: none;
