@@ -24,6 +24,7 @@
     color: grey;
     background-color: white;
     cursor: pointer;
+    width: 1em
 }
 .comm-r0 > button :hover{
     color: black;
@@ -88,8 +89,8 @@
 }
 
 .comm-row1-2 .comm-copy1{
-    margin-right: 65%;
+    margin-right: 14.5em;
 }
 .comm-row1-2 .comm-copy2{
-    margin-right: 70%;
+    margin-right: 16em;
 }
