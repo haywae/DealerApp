@@ -96,13 +96,13 @@ input:focus{
 }
 .description-text{
     text-align: left;
-    color: black;
+    color: var(--darkColor);
     font-style: italic;
     font-size: x-small;
     font-weight: bold;
-    background-color: #addac1;
     border-radius: 0 0 5px 5px;
     padding: 1%;
+    border-top: solid 3px var(--lightColor);
 }
 
 /* Tooltips */

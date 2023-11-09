@@ -134,11 +134,11 @@ export default function ConverterMain (props) {
                 <div className={`${view ==='findOut'? 'copy-reset-container2' : 'copy-reset-container1'} convt-r0`}>
                     <button type="button" className={`${ convt[view][name]['id'] !== 1 ? 'convt-copy2': 'convt-copy1'} ttButton`} onClick={()=>{navigator.clipboard.writeText(convt[view][name].output)}}>
                         {copyOutput}
-                        <span className="ttText right-tt">{ttCopyResult}</span>
+                        <span className={`ttText ${view === 'convert' ? 'right-tt' : ''}`}>{ttCopyResult}</span>
                     </button>
                     <button type='button'className=" ttButton" onClick={resetConverter}>
                         {resetRow}
-                        <span className="ttText right-tt">{ttReset}</span>
+                        <span className={`ttText right-tt`}>{ttReset}</span>
                     </button>
                     {convt[view][name]['id'] !== 1 && <button type="button" onClick={removeConverter} className="ttButton">
                         {closeRow}

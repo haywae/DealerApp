@@ -89,8 +89,10 @@
 }
 
 .comm-row1-2 .comm-copy1{
-    margin-right: 14.5em;
+    width: calc(70% - 1em);
+    text-align: left;
 }
 .comm-row1-2 .comm-copy2{
-    margin-right: 16em;
+    width: 72%;
+    text-align: left;
 }

@@ -190,7 +190,7 @@ function CommissionMain (props) {
                     onClick={()=>{navigator.clipboard.writeText(commissionTab[view][name].output)}}
                 >
                     <FontAwesomeIcon icon={faCopy} />
-                    <span className="ttText right-tt">{ttCopyResult}</span>
+                    <span className={`ttText ${view === 'remove' ? 'right-tt' : ''}`}>{ttCopyResult}</span>
                 </button>
                 <button type='button'className="ttButton " onClick={resetRow}>
                     <FontAwesomeIcon icon={faRefresh} />

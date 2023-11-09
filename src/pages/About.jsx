@@ -6,7 +6,7 @@ export function About(){
             <Helmet>
                 <title>About - WolexChange</title>
             </Helmet>
-            <h2 className="about-head-2">WolexChange</h2>
+            <h2 className="about-head-2">About Us</h2>
             <p className="about-p">
                 WolexChange is a platform dedicated to providing the best tools for individuals and organisations involved in financial 
                 services, with a focus on dependability. We work hard to transform our passion in fintech into a thriving online website. 

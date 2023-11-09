@@ -48,12 +48,13 @@
     width: 100%;
     justify-content: right;
 }
-
 .copy-reset-container2 > .convt-copy1{
-    margin-right: 50%;
+    width: 50.5%;
+    text-align: left;
 }
 .copy-reset-container2 > .convt-copy2{
-    margin-right: 47%;
+    width: calc( 48.5% - 1em);
+    text-align: left;
 }
 .convt-add{
     background-color: var(--lightColor);
@@ -69,9 +70,10 @@
     position: relative;
 }
 .convt-r0 > button{
-    margin: 0 1%;
     color: gray;
     background-color: white;
+    width: 1em;
+    margin: 0 1%;
 }
 .convt-r0 > button:hover{
     color: black;
