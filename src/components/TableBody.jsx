@@ -167,7 +167,8 @@ export default function TableBody(props) {
                 <button className="dropBtn ttButton"
                 onClick={()=>setIsOpen(oldState => !oldState)} 
                 >
-                    <span className={selected!=="choose"? flag[selected] : ""}></span>{selected}
+                    <span className={selected!=="choose"? flag[selected] : ""}></span> 
+                    <span className='selected-text'>{selected}</span>
                     <span className="ttText left-tt">{ttCurrencyButton}</span>
                 </button>
                 <div className={`dropdownContent ${isOpen? 'active':'inactive'}`}>

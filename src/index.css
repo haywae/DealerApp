@@ -89,7 +89,7 @@ input{
 input:focus{
     border: 1px solid grey;
 }
-.fi {
+.fi, .fi-usdt{
     margin-right: 5%;
     box-shadow: 0px 1px 4px 0px var(--midColor);
     background-size: cover !important;
@@ -134,7 +134,28 @@ input:focus{
 .left-tt{
     left: 0%;
 }
-
+.fi-crypto{
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    width: 1.5em;
+    background-size: cover;
+    box-shadow: none;
+    height: 1em;
+}
+.fi-usdt{
+    content: url("../public/assets/tether-usdt-logo.svg");
+}
+.fi-btc{
+    content: url("../public/assets/bitcoin-icon.svg");
+}
+.selected-text {
+    margin: auto;
+    height: 1em;
+    line-height: 1em;
+    font-size: 1em;
+    display: inline-block;
+}
 /* Tooltips */
 @media only screen and (min-width: 768px){
     .content{

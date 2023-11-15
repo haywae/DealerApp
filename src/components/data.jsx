@@ -12,6 +12,8 @@ export const currencies = {
     RUB: {bv: 0, sv: 0, name: "RUB", country: "RU"},
     TRY: {bv: 0, sv: 0, name: "TRY", country: "TR"},
     ZAR: {bv: 0, sv: 0, name: "ZAR", country: "ZA"},
+    BTC: {bv: 0, sv: 0, name: "BTC", country: "none"},
+    USDT: {bv: 0, sv: 0, name: "USDT", country: "none"},
 }
 
 export const rowsObject = {
@@ -44,6 +46,8 @@ export const flag = {
     RUB: "fi fi-ru", 
     TRY: "fi fi-tr",
     ZAR: "fi fi-za",
+    BTC: "fi-crypto fi-btc",
+    USDT: "fi-crypto fi-usdt",
 }
 
 export const comma_dec_langs = [
