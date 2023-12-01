@@ -190,7 +190,7 @@ function Dropdown(props) {
     } = props;
     
     return(                        
-    <li className="currencyList"  
+    <li className="currency-list"  
     onMouseDown={()=>{
         checkSelectValue(text, type) && 
         checkSameValue(text, type) && 

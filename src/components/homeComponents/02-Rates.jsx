@@ -184,6 +184,9 @@ function LocalCurrencyDropdown(props) {
             checkLocationOnRow(name) && setLocationName(name)
             checkLocationOnRow(name) && setCurrency((prev)=>({...prev, [name]: {...prev[name], bv: 1, sv: 1}}))
             setOpenHome(false) }}
-        > <span className={flag[name]}>{}</span> {name} </li>
+        > 
+            <span className={flag[name]}></span> 
+            <span className="fi-selected">{name} </span>
+        </li>
     )
 }
