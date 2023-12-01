@@ -92,7 +92,7 @@ input:focus{
 .fi, .fi-crypto{
     box-shadow: 0px 1px 4px 0px var(--midColor);
     background-size: cover !important;
-    margin: auto 0;
+    margin: auto 0 ;
     margin-right: 5%;
 }
 .description-text{
