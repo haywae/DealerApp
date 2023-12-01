@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '../css/Calculator.css'
+import '../../css/home/Calculator.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'

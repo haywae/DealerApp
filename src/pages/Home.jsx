@@ -1,7 +1,7 @@
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import ComCalculator from '../components/ComCalculator';
-import ConverterApp from '../components/ConveterApp';
-import Calculator from "../components/Calculator";
+import ComCalculator from '../components/homeComponents/01-ComCalculator';
+import ConverterApp from '../components/homeComponents/01-ConveterApp';
+import Calculator from "../components/homeComponents/01-Calculator";
 import '../index.css'
 import { Helmet } from "react-helmet-async";
 

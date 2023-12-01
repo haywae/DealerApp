@@ -1,7 +1,7 @@
 import  {useEffect} from 'react'
 import { useState } from "react";
 import { useRef } from "react";
-import '../css/Rates.css';
+import '../../css/home/Rates.css';
 import { rates, ratesTooltips } from './text';
 import React from 'react';
 

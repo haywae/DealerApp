@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/ComCalculator.css';
+import '../../css/home/ComCalculator.css';
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { commissionDetails, commissionTooltips } from "./text";

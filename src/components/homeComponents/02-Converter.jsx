@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useState } from "react";
-import '../css/Converter.css';
-import ConverterMain from "./ConverterMain";
+import '../../css/home/Converter.css';
+import ConverterMain from "./03-ConverterMain";
 import { converterDetails } from "./text";
 import { converterTooltips } from "./text";
 

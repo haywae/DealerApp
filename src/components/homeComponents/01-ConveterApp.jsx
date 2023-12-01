@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Rates from './Rates';
-import Converter from './Converter';
+import Rates from './02-Rates';
+import Converter from './02-Converter';
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { convtObject, currencies } from './data';
 import { flag } from './data';

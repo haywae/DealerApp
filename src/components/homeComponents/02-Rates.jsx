@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import '../css/Rates.css';
-import TableBody from "./TableBody";
+import '../../css/home/Rates.css';
+import TableBody from "./03-TableBody";
 import { useState } from "react";
 import { useRef } from "react";
 import { rates } from "./text";
