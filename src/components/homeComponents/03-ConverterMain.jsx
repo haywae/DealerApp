@@ -221,7 +221,7 @@ const SelectInput = forwardRef(function SelectInput(props, ref){
             <button className="currencyButton ttButton" onClick= {()=>setIsOpen(oldState => ({...oldState, selectInput: !oldState.selectInput}))}
                 ref={e => {preValue.current[0] = e}}>
                 <span className={flag[selectInput]}></span>
-                {selectInput}
+                <span className='fi-selected'> {selectInput } </span>
                 <span className="ttText left-tt">{ttCurrencyButton}</span>
             </button>
             <ul className={`currencyButtonContent ${view==='convert'? 'content1': 'content2'} ${isOpen.selectInput? 'active':'inactive'}`}> 
@@ -300,7 +300,7 @@ const SelectOutput = forwardRef(function SelectOutput(props, ref) {
         <div className="currency-button-container" ref={e => {preValue.current[1] = e}}>
             <button className="currencyButton ttButton" onClick= {()=>setIsOpen(oldState => ({...oldState, selectOutput: !oldState.selectOutput}))}>
                 <span className={flag[selectOutput]}></span>
-                {selectOutput}
+                <span className="fi-selected">{selectOutput}</span>
                 <span className="ttText left-tt">{ttCurrencyButton}</span>
             </button>
             <ul className={`currencyButtonContent ${view==='convert'? 'content2': 'content1'} ${isOpen.selectOutput? 'active':'inactive'}`}>

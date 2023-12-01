@@ -168,7 +168,7 @@ export default function TableBody(props) {
                 onClick={()=>setIsOpen(oldState => !oldState)} 
                 >
                     <span className={selected!=="choose"? flag[selected] : ""}></span> 
-                    <span className='selected-text'>{selected}</span>
+                    <span className='fi-selected'>{selected}</span>
                     <span className="ttText left-tt">{ttCurrencyButton}</span>
                 </button>
                 <div className={`dropdownContent ${isOpen? 'active':'inactive'}`}>
@@ -257,7 +257,7 @@ function DropDown(props) {
     } = props
 
     return(    
-    <li className="list"  onMouseDown={()=>{
+    <li className="currency-list"  onMouseDown={()=>{
         checkLocation(text) && checkIfSelected(text) && setValue(prev=>{
             return{
                 ...prev,
@@ -276,7 +276,7 @@ function DropDown(props) {
         reCalculateConverter()
     }}
     >
-        <span className={flag[text]}></span> {text} 
+        <span className={flag[text]}></span> <span className='fi-selected'> {text} </span>
     </li>
     )
 }

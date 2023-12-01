@@ -152,6 +152,8 @@ tbody{
     border-radius: 5px;
     box-shadow: 0px 1px 2px 0px var(--midColor);
     border: solid 1px var(--lightColor) ;
+    display: flex;
+    justify-content: center;
 }
 
 .dropdownContent, .local-currency-dropdown{
@@ -171,16 +173,17 @@ tbody{
 .dropdownContent.inactive .local-currency-dropdown.inactive{
     display: none;
 }
-.list, .home-dropdown-list{
-    line-height: 1.5rem;
-    text-align: center;
+.currency-list, .home-dropdown-list{
     font-size: small;
     color: var(--darkColor);
+    display: flex;
+    justify-content: center;
+    margin: 5% auto;
 }
 .home-dropdown-list{
     line-height: 1.2rem;
 }
-.list:hover, .home-dropdown-list:hover{
+.currency-list:hover, .home-dropdown-list:hover{
     background-color: var(--lightColor);
 }
 

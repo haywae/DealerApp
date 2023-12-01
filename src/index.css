@@ -89,10 +89,11 @@ input{
 input:focus{
     border: 1px solid grey;
 }
-.fi, .fi-usdt{
-    margin-right: 5%;
+.fi, .fi-crypto{
     box-shadow: 0px 1px 4px 0px var(--midColor);
     background-size: cover !important;
+    margin: auto 0;
+    margin-right: 5%;
 }
 .description-text{
     text-align: left;
@@ -112,7 +113,7 @@ input:focus{
     background-color: black;
     color:  white;
     border-radius: 5px;
-    visibility: hidden;
+    display: none;
     top: 100%;
     width:max-content;
     opacity: 0;
@@ -125,7 +126,7 @@ input:focus{
     position: relative;
 }
 .ttButton:hover .ttText{
-    visibility: visible;
+    display: block;
     opacity: 1;
 }
 .right-tt{
@@ -137,24 +138,21 @@ input:focus{
 .fi-crypto{
     background-repeat: no-repeat;
     position: relative;
-    display: inline-block;
     width: 1.5em;
-    background-size: cover;
     box-shadow: none;
     height: 1em;
+    
+}
+.fi-selected{
+    display: inline;
+    margin: auto 0;
+    line-height: 100%;
 }
 .fi-usdt{
     content: url("../public/assets/tether-usdt-logo.svg");
 }
 .fi-btc{
-    content: url("../public/assets/bitcoin-icon.svg");
-}
-.selected-text {
-    margin: auto;
-    height: 1em;
-    line-height: 1em;
-    font-size: 1em;
-    display: inline-block;
+    content: url("../public/assets/bitcoin-logo.svg");
 }
 /* Tooltips */
 @media only screen and (min-width: 768px){

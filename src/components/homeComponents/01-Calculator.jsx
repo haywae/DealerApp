@@ -67,6 +67,7 @@ export default  function Calculator() {
             [name] : {...prev[name], result: 0}
         }))
     }
+    
     function subCalc(){
         let result = 0;
         let base = {value: 0, status: ''}
@@ -103,8 +104,6 @@ export default  function Calculator() {
             }
         })
     }
-
-    
 
     return (
         <div className="cards calculator-card">
