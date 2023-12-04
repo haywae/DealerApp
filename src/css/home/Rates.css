@@ -13,8 +13,8 @@
 }
 .local-currency-heading{
     text-align: center;
+    font-size: 0.9em;
     font-weight: normal;
-    font-size: 0.9rem;
 }
 .local-currency-dropdown{
     width: 75% !important;

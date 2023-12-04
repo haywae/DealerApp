@@ -99,9 +99,8 @@ export default function Rates(props) {
             setErrorText(`Clear ${clickedCurr} rates`)
             ratesError()
             return false
-        } else {
-            return true
-        }
+        } 
+        return true
 
     }
 
@@ -179,12 +178,13 @@ function LocalCurrencyDropdown(props) {
     const{ currency, checkLocationOnRow, flag,  name, setOpenHome, setCurrency, setLocation, setLocationName}=props
     const clickedLocation= currency[name].country
     return (
+        clickedLocation !== 'none' &&
         <li className="home-dropdown-list" onClick={()=>{
             checkLocationOnRow(name) && setLocation(clickedLocation)
             checkLocationOnRow(name) && setLocationName(name)
             checkLocationOnRow(name) && setCurrency((prev)=>({...prev, [name]: {...prev[name], bv: 1, sv: 1}}))
             setOpenHome(false) }}
-        > 
+        >  
             <span className={flag[name]}></span> 
             <span className="fi-selected">{name} </span>
         </li>
