@@ -3,7 +3,7 @@ import { faPlus, faClose, faCopy, faMinus, faPercentage, faArrowRightArrowLeft, 
 
 export const rates = {
     caption: 'Rates',
-    localCurrencyHeading: 'Base',
+    localCurrencyHeading: 'Location',
     col1Heading: 'Currency',
     col2Heading: 'BUY',
     col3Heading: 'SELL',
