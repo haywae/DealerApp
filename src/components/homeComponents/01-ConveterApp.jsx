@@ -19,7 +19,7 @@ export default function ConverterApp() {
         const formatedInput = Number( input.replace(/,/g, '') )
         if (selectInput !== 'choose' && selectOutput !== 'choose'){
             let result = (currency[selectInput]['bv'] * formatedInput) / currency[selectOutput]['sv']
-            if (Number(result)){
+            if (isFinite(Number(result)) ){
                 setConvt(prev=>({...prev, 
                     convert: {...prev.convert, 
                         [name]: {...prev.convert[name], output: result.toFixed(4) }
@@ -34,7 +34,7 @@ export default function ConverterApp() {
         const formatedInput = Number( input.replace(/,/g, '') )
         if (selectInput !== 'choose' && selectOutput !== ' choose'){
             let result = ((currency[selectInput]['sv']) * formatedInput) / currency[selectOutput]['bv']
-            if (Number(result)) {
+            if (isFinite(Number(result))) {
                 setConvt(prev=>({...prev, 
                     findOut: {...prev.findOut, 
                         [name]: {...prev.findOut[name], output: result.toFixed(4)}
@@ -70,7 +70,6 @@ export default function ConverterApp() {
         updateCurrencies()
     }, [rows, locationName])
 
-
     return (
         <div className='cards'>
             <Rates 
@@ -87,6 +86,3 @@ export default function ConverterApp() {
         </div>
     )
 }
-
-
-

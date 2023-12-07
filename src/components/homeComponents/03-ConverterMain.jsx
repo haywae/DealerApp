@@ -16,20 +16,22 @@ export default function ConverterMain (props) {
     const [inputText, setInputText] = useState({leftInput: '', rightInput: ''}); // the value of the  input on the currency select dropdrown
     
     const preValue = useRef([]);
-    const main = useRef(); //grabs the main element
-    const inputRef = useRef([]);//grabs the input element
+    const main = useRef(); //grabs the main element from the jsx
+    const inputRef = useRef([]);//grabs the input element from the jsx
     const curRef = useRef(Object.keys(currency))
     let id = 1;
 
     const convtDropdown1 = curRef.current.map(e=>{
-        return currency[e].name.search(inputText['leftInput'].toUpperCase()) > -1 && <Dropdown key={id++} type="selectInput" convt={convt} setConvt={setConvt} errorDisplay={errorDisplay}
-        text={e} currency={currency} checkSelectValue={checkSelectValue} setIsOpen={setIsOpen} view={view} 
-        checkSameValue={checkSameValue} name={name} flag={flag} calcConvert={calcConvert} calcFindOut={calcFindOut}/>
+        return currency[e].name.search(inputText['leftInput'].toUpperCase()) > -1 && <Dropdown key={id++} type="selectInput" convt={convt} setConvt={setConvt} 
+            errorDisplay={errorDisplay} text={e} currency={currency} checkSelectValue={checkSelectValue} setIsOpen={setIsOpen} view={view} 
+            checkSameValue={checkSameValue} name={name} flag={flag} calcConvert={calcConvert} calcFindOut={calcFindOut}
+        />
     })
     const convtDropdown2 = curRef.current.map(e=>{
-        return currency[e].name.search(inputText['rightInput'].toUpperCase()) > -1 && <Dropdown key={id++} type="selectOutput" convt={convt} setConvt={setConvt} errorDisplay={errorDisplay}
-        text={e} currency={currency} checkSelectValue={checkSelectValue} setIsOpen={setIsOpen} view={view}
-        checkSameValue={checkSameValue} name={name} flag={flag} calcConvert={calcConvert} calcFindOut={calcFindOut}/>
+        return currency[e].name.search(inputText['rightInput'].toUpperCase()) > -1 && <Dropdown key={id++} type="selectOutput" convt={convt} setConvt={setConvt} 
+            errorDisplay={errorDisplay} text={e} currency={currency} checkSelectValue={checkSelectValue} setIsOpen={setIsOpen} view={view}
+            checkSameValue={checkSameValue} name={name} flag={flag} calcConvert={calcConvert} calcFindOut={calcFindOut}
+        />
     })
 
     useEffect(()=>{
@@ -48,11 +50,11 @@ export default function ConverterMain (props) {
 
     function checkSameValue(value, type) { 
         if (type === "selectInput" && value === convt[view][name].selectOutput) { 
-            setErrorText(`You can't select same currencies`)     //it will check if selected currency already exists on the other side
+            setErrorText(`You can't select same currencies`);    //it will check if selected currency already exists on the other side
             errorDisplay();                                      //it will display error if currency exists and returns true if it doesn't exist
             return false;                                        // it receives the currency type to exchange from and currency value to exchange to as parameters 
         } else if (type === "selectOutput" && value === convt[view][name].selectInput) {
-            setErrorText(`You can't select same currencies`)
+            setErrorText(`You can't select same currencies`);
             errorDisplay();
             return false;
         } else {
@@ -61,13 +63,13 @@ export default function ConverterMain (props) {
     }   
 
     function checkSelectValue(value, type){
-        if (type === "selectInput" && currency[value].bv === 0) { 
-            setErrorText(`Set ${value} rates`);       /*It will check if a selected currency has been set on the rates table*/
-            errorDisplay()                            // it will display error if it's rates is not set and return falsenpm start
+        if (type === "selectInput" && Number(currency[value].bv) <= 0 && Number(currency[value].sv) <= 0) { 
+            setErrorText(`Set ${value} rates`);       // It will check if a selected currency has been set on the rates table
+            errorDisplay();                            // it will display error if it's rates is not set and return false
             return false;                             // if it is set, it will return true
-        } else if (type === "selectOutput" && currency[value].sv === 0){
+        } else if (type === "selectOutput" && Number(currency[value].sv) <= 0 && Number(currency[value].bv) <= 0) {
             setErrorText(`Set ${value} rates`);
-            errorDisplay()
+            errorDisplay();
             return false;
         }else {
             return true;
@@ -81,11 +83,11 @@ export default function ConverterMain (props) {
                 if (name !== e ){
                     newObj = {
                         ...newObj, [e]: prev[view][e] 
-                    }
+                    }; 
                 }    
-                return null
+                return null;
             })
-            return {...prev, [view]: {...newObj}}
+            return {...prev, [view]: {...newObj}};
         })
     }
 
@@ -125,25 +127,26 @@ export default function ConverterMain (props) {
                     ...prev, rightInput: value
                 }
             }
-        
         })
     }
 
     return ( 
         <main className="card-main converter-main" ref={main}>
-                <div className={`${view ==='findOut'? 'copy-reset-container2' : 'copy-reset-container1'} convt-r0`}>
-                    <button type="button" className={`${ convt[view][name]['id'] !== 1 ? 'convt-copy2': 'convt-copy1'} ttButton`} onClick={()=>{navigator.clipboard.writeText(convt[view][name].output)}}>
-                        {copyOutput}
-                        <span className={`ttText ${view === 'convert' ? 'right-tt' : ''}`}>{ttCopyResult}</span>
-                    </button>
-                    <button type='button'className=" ttButton" onClick={resetConverter}>
-                        {resetRow}
-                        <span className={`ttText right-tt`}>{ttReset}</span>
-                    </button>
-                    {convt[view][name]['id'] !== 1 && <button type="button" onClick={removeConverter} className="ttButton">
-                        {closeRow}
-                        <span className="ttText right-tt">{ttCloseButton}</span>
-                    </button>}
+            <div className={`${view ==='findOut'? 'copy-reset-container2' : 'copy-reset-container1'} convt-r0`}>
+                <button type="button" className={`${ convt[view][name]['id'] !== 1 ? 'convt-copy2': 'convt-copy1'} ttButton`} 
+                    onClick={()=>{navigator.clipboard.writeText(convt[view][name].output)}}
+                >
+                    {copyOutput}
+                    <span className={`ttText ${view === 'convert' ? 'right-tt' : ''}`}> {ttCopyResult} </span>
+                </button>
+                <button type='button'className=" ttButton" onClick={resetConverter}>
+                    {resetRow}
+                    <span className={`ttText right-tt`}> {ttReset} </span>
+                </button>
+                {convt[view][name]['id'] !== 1 && <button type="button" onClick={removeConverter} className="ttButton">
+                    {closeRow}
+                    <span className="ttText right-tt"> {ttCloseButton} </span>
+                </button>}
 
             </div>
 
@@ -157,11 +160,9 @@ export default function ConverterMain (props) {
                     />
                 }
 
-                {view === "convert"? <Input convt={convt} name={name} setConvt={setConvt} view={view} calcConvert={calcConvert}
+                {view === "convert" ? <Input convt={convt} name={name} setConvt={setConvt} view={view} calcConvert={calcConvert}
                     calcFindOut={calcFindOut} input={convt[view][name]['input']}
-                /> : 
-                    <Output changeToCurrency={changeToCurrency} output={convt[view][name]['output']}
-                />}
+                /> : <Output changeToCurrency={changeToCurrency} output={convt[view][name]['output']} />}
 
                 <button className="switch-button ttButton " onMouseDown={switchValues} onMouseUp={()=>{view === 'convert'? calcConvert(name) : calcFindOut(name);}}>
                     {switchButton}
@@ -191,21 +192,21 @@ function Dropdown(props) {
     
     return(                        
     <li className="currency-list"  
-    onMouseDown={()=>{
-        checkSelectValue(text, type) && 
-        checkSameValue(text, type) && 
-        setConvt( prev=>{
-            return {...prev, 
-                [view]: {...prev[view],
-                    [name]: {...prev[view][name], [type]: text}
+        onMouseDown={()=>{
+            checkSelectValue(text, type) && 
+            checkSameValue(text, type) && 
+            setConvt( prev=>{
+                return {...prev, 
+                    [view]: {...prev[view],
+                        [name]: {...prev[view][name], [type]: text}
+                    }
                 }
-            }
-        });
-    }}
-    onMouseUp={()=>{
-        setIsOpen(false);
-        view === 'convert'? calcConvert(name) : calcFindOut(name);
-    }}
+            });
+        }}
+        onMouseUp={()=>{
+            setIsOpen(false);
+            view === 'convert'? calcConvert(name) : calcFindOut(name);
+        }}
     >
         <span className={flag[text]}></span>{text}
     </li>)
@@ -312,6 +313,7 @@ const SelectOutput = forwardRef(function SelectOutput(props, ref) {
         </div>
     )
 })
+
 function Output (props) {
     const {changeToCurrency, output} = props;
     return (

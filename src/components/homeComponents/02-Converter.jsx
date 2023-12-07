@@ -8,13 +8,13 @@ import { converterTooltips } from "./text";
 export default function Converter(props){
     const [errorText, setErrorText] = useState("");
     
-
     const {calcConvert, calcFindOut, convt, currency, flag, setConvt, setView, view} = props;
     const {ttAddRow} = converterTooltips
     const {addRow, tab1DescriptionText, tab2DescriptionText, leftHeading, rightHeading ,tab1Caption, tab2Caption } = converterDetails;
 
     const convtRef = useRef();
     const errorRef = useRef();
+
     const convertMain = Object.keys(convt.convert).map(e => {
         return <ConverterMain currency={currency} errorDisplay={errorDisplay} key={e}
             setErrorText={setErrorText} name={e} view={view} flag={flag} setView={setView} 
@@ -35,7 +35,7 @@ export default function Converter(props){
             for (let i = 1; num !== 'off'; i++) {
                 if (!convt[view].hasOwnProperty([`row${i}`])){
                     num = 'off';
-                        return {
+                    return {
                         ...prev,
                         [view] : {...prev[view], [`row${i}`] : {selectInput: "choose", input: "", selectOutput: "choose", output: 0, id: i}}
                     }
@@ -86,4 +86,3 @@ export default function Converter(props){
         </div> 
     )
 }
-
